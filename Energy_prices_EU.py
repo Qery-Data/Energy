@@ -26,7 +26,6 @@ type(dataset)
 df = dataset.write('dataframe')
 df=df.replace({'European Union - 27 countries (from 2020)':'EU27'})
 df_new = df.pivot(index='geo', columns='time', values='value')
-df_new.columns = df_new.columns.str.replace("S", "H")
 df_new.to_csv('data/Natural_Gas_Prices_Time_Consumers_EU27.csv', index=True)
 raw_date = dataset["updated"]
 parsed_date = datetime.strptime(raw_date, '%Y-%m-%d')
