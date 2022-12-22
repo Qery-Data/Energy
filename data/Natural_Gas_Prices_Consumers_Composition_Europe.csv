@@ -1,4 +1,5 @@
 geo,All taxes and levies included,Excluding VAT and other recoverable taxes and levies,Excluding taxes and levies
+Albania,0.0,0.0,0.0
 Austria,0.0767,0.0639,0.057
 Belgium,0.0939,0.0798,0.0785
 Bosnia and Herz.,0.0438,0.0375,0.0375
@@ -21,7 +22,7 @@ Liechtenstein,0.1128,0.1048,0.0837
 Lithuania,0.0587,0.0485,0.0465
 Luxembourg,0.0856,0.0792,0.0781
 Moldova,0.0842,0.0779,0.0779
-Netherlands,0.1293,0.1068,0.0608
+Netherlands,0.1244,0.1028,0.0608
 North Macedonia,0.121,0.1025,0.1025
 Poland,0.0549,0.0547,0.0542
 Portugal,0.0837,0.0684,0.0602
@@ -30,5 +31,5 @@ Serbia,0.0336,0.0306,0.0305
 Slovakia,0.0488,0.0407,0.0407
 Slovenia,0.0691,0.0566,0.0507
 Spain,0.0897,0.0742,0.0696
-Sweden,0.2216,0.1773,0.1489
+Sweden,0.2216,0.1773,
 Turkey,0.017,0.0144,0.0143
