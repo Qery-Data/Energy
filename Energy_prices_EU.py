@@ -9,7 +9,7 @@ import pandas as pd
 os.makedirs('data', exist_ok=True)
 
 #Electricity prices over time consumers EU27
-dataset = pyjstat.Dataset.read('https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_204?consom=4161903&tax=I_TAX&currency=EUR&geo=EU27_2020&time=2022S1&time=2021S2&time=2021S1&time=2020S2&time=2020S1&time=2019S2&time=2019S1&time=2018S2&time=2018S1&time=2017S2&time=2017S1&time=2016S2&time=2016S1&time=2015S2&time=2015S1&time=2014S2&time=2014S1&time=2013S2&time=2013S1&time=2012S2&time=2012S1&time=2011S2&time=2011S1&time=2010S2&time=2010S1&time=2009S2&time=2009S1&time=2008S2&time=2008S1')
+dataset = pyjstat.Dataset.read('https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_204?consom=4161903&tax=I_TAX&currency=EUR&geo=EU27_2020&lastTimePeriod=29')
 type(dataset)
 df = dataset.write('dataframe')
 df=df.replace({'European Union - 27 countries (from 2020)':'EU27'})
