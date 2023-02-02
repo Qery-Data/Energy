@@ -55,7 +55,7 @@ parsed_date = datetime.strptime(raw_date, '%Y-%m-%dT%H:%M:%S%z')
 chart_date = 'Data last published: ' + parsed_date.strftime ('%d/%m/%y')
 
 #Electricity price comparison by time (S1) Europe
-dataset = pyjstat.Dataset.read('https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_204?consom=4161903&tax=I_TAX&currency=NAC&geo=AL&geo=AT&geo=BA&geo=BE&geo=BG&geo=CY&geo=CZ&geo=DE&geo=DK&geo=EA&geo=EE&geo=EL&geo=ES&geo=EU27_2020&geo=FI&geo=FR&geo=GE&geo=HR&geo=HU&geo=IE&geo=IS&geo=IT&geo=LI&geo=LT&geo=LU&geo=LV&geo=MD&geo=ME&geo=MK&geo=MT&geo=NL&geo=NO&geo=PL&geo=PT&geo=RO&geo=RS&geo=SE&geo=SI&geo=SK&geo=TR&geo=UA&geo=UK&geo=XK&time=2022S1&time=2021S1')
+dataset = pyjstat.Dataset.read('https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_204?consom=4161903&tax=I_TAX&currency=NAC&geo=AL&geo=AT&geo=BA&geo=BE&geo=BG&geo=CY&geo=CZ&geo=DE&geo=DK&geo=EA&geo=EE&geo=EL&geo=ES&geo=EU27_2020&geo=FI&geo=FR&geo=GE&geo=HR&geo=HU&geo=IE&geo=IS&geo=IT&geo=LI&geo=LT&geo=LU&geo=LV&geo=MD&geo=ME&geo=MK&geo=MT&geo=NL&geo=NO&geo=PL&geo=PT&geo=RO&geo=RS&geo=SE&geo=SI&geo=SK&geo=TR&geo=UA&geo=UK&geo=XK&time=2022-S1&time=2021-S1')
 type(dataset)
 df = dataset.write('dataframe')
 df=df.replace({'Bosnia and Herzegovina':'Bosnia and Herz.','Czechia':'Czech Rep.','Euro area (EA11-1999, EA12-2001, EA13-2007, EA15-2008, EA16-2009, EA17-2011, EA18-2014, EA19-2015, EA20-2023)':'Euro area', 'European Union - 27 countries (from 2020)':'EU27', 'Germany (until 1990 former territory of the FRG)':'Germany', 'Kosovo (under United Nations Security Council Resolution 1244/99)':'Kosovo','Türkiye':'Turkey'})
@@ -68,7 +68,7 @@ parsed_date = datetime.strptime(raw_date, '%Y-%m-%dT%H:%M:%S%z')
 chart_date = 'Data last published: ' + parsed_date.strftime ('%d/%m/%y')
 
 #Natural gas price comparison by time (S1) Europe
-dataset = pyjstat.Dataset.read('https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_202?consom=4141902&tax=I_TAX&unit=KWH&currency=NAC&geo=AL&geo=AT&geo=BA&geo=BE&geo=BG&geo=CY&geo=CZ&geo=DE&geo=DK&geo=EA&geo=EE&geo=EL&geo=ES&geo=EU27_2020&geo=FI&geo=FR&geo=GE&geo=HR&geo=HU&geo=IE&geo=IS&geo=IT&geo=LI&geo=LT&geo=LU&geo=LV&geo=MD&geo=ME&geo=MK&geo=MT&geo=NL&geo=NO&geo=PL&geo=PT&geo=RO&geo=RS&geo=SE&geo=SI&geo=SK&geo=TR&geo=UA&geo=UK&geo=XK&time=2022S1&time=2021S1')
+dataset = pyjstat.Dataset.read('https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_202?consom=4141902&tax=I_TAX&unit=KWH&currency=NAC&geo=AL&geo=AT&geo=BA&geo=BE&geo=BG&geo=CY&geo=CZ&geo=DE&geo=DK&geo=EA&geo=EE&geo=EL&geo=ES&geo=EU27_2020&geo=FI&geo=FR&geo=GE&geo=HR&geo=HU&geo=IE&geo=IS&geo=IT&geo=LI&geo=LT&geo=LU&geo=LV&geo=MD&geo=ME&geo=MK&geo=MT&geo=NL&geo=NO&geo=PL&geo=PT&geo=RO&geo=RS&geo=SE&geo=SI&geo=SK&geo=TR&geo=UA&geo=UK&geo=XK&time=2022-S1&time=2021-S1')
 type(dataset)
 df = dataset.write('dataframe')
 df=df.replace({'Bosnia and Herzegovina':'Bosnia and Herz.','Czechia':'Czech Rep.','Euro area (EA11-1999, EA12-2001, EA13-2007, EA15-2008, EA16-2009, EA17-2011, EA18-2014, EA19-2015, EA20-2023)':'Euro area', 'European Union - 27 countries (from 2020)':'EU27', 'Germany (until 1990 former territory of the FRG)':'Germany', 'Kosovo (under United Nations Security Council Resolution 1244/99)':'Kosovo','Türkiye':'Turkey'})
