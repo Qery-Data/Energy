@@ -17,7 +17,7 @@ df_new = df.pivot(index='Geopolitical entity (reporting)', columns='Time', value
 df_new.columns = df_new.columns.str.replace("S", "H")
 df_new.to_csv('data/Electricity_Prices_Consumers_Time_EU27.csv', index=True)
 raw_date = dataset["updated"]
-parsed_date = datetime.strptime(raw_date, '%Y-%m-%d')
+parsed_date = datetime.strptime(raw_date, '%Y-%m-%dT%H:%M:%S%z')
 chart_date = 'Data last published: ' + parsed_date.strftime ('%d/%m/%y')
 
 #Natural gas prices over time consumers EU27
@@ -29,7 +29,7 @@ df_new = df.pivot(index='Geopolitical entity (reporting)', columns='Time', value
 df_new.columns = df_new.columns.str.replace("S", "H")
 df_new.to_csv('data/Natural_Gas_Prices_Consumers_Time_EU27.csv', index=True)
 raw_date = dataset["updated"]
-parsed_date = datetime.strptime(raw_date, '%Y-%m-%d')
+parsed_date = datetime.strptime(raw_date, '%Y-%m-%dT%H:%M:%S%z')
 chart_date = 'Data last published: ' + parsed_date.strftime ('%d/%m/%y')
 
 #Electricity prices households latest Europe
@@ -40,7 +40,7 @@ df=df.replace({'Bosnia and Herzegovina':'Bosnia and Herz.','Czechia':'Czech Rep.
 df_new = df.pivot(index='Geopolitical entity (reporting)', columns='Time', values='value')
 df_new.to_csv('data/Electricity_Prices_Consumers_Latest_Europe.csv', index=True)
 raw_date = dataset["updated"]
-parsed_date = datetime.strptime(raw_date, '%Y-%m-%d')
+parsed_date = datetime.strptime(raw_date, '%Y-%m-%dT%H:%M:%S%z')
 chart_date = 'Data last published: ' + parsed_date.strftime ('%d/%m/%y')
 
 #Natural gas prices households latest Europe
@@ -51,7 +51,7 @@ df=df.replace({'Bosnia and Herzegovina':'Bosnia and Herz.','Czechia':'Czech Rep.
 df_new = df.pivot(index='Geopolitical entity (reporting)', columns='Time', values='value')
 df_new.to_csv('data/Natural_Gas_Prices_Consumers_Latest_Europe.csv', index=True)
 raw_date = dataset["updated"]
-parsed_date = datetime.strptime(raw_date, '%Y-%m-%d')
+parsed_date = datetime.strptime(raw_date, '%Y-%m-%dT%H:%M:%S%z')
 chart_date = 'Data last published: ' + parsed_date.strftime ('%d/%m/%y')
 
 #Electricity price comparison by time (S1) Europe
@@ -64,7 +64,7 @@ df_new.drop(index={'Euro area','Ukraine','United Kingdom', 'Turkey'}, inplace=Tr
 df_new['Pct change'] = df_new[['2021S1','2022S1']].pct_change(axis=1)['2022S1']*100
 df_new.to_csv('data/Electricity_Prices_Consumers_Change_Europe.csv', index=True)
 raw_date = dataset["updated"]
-parsed_date = datetime.strptime(raw_date, '%Y-%m-%d')
+parsed_date = datetime.strptime(raw_date, '%Y-%m-%dT%H:%M:%S%z')
 chart_date = 'Data last published: ' + parsed_date.strftime ('%d/%m/%y')
 
 #Natural gas price comparison by time (S1) Europe
@@ -77,7 +77,7 @@ df_new.drop(index={'Euro area','Ukraine','United Kingdom', 'Turkey'}, inplace=Tr
 df_new['Pct change'] = df_new[['2021S1','2022S1']].pct_change(axis=1)['2022S1']*100
 df_new.to_csv('data/Natural_Gas_Prices_Consumers_Change_Europe.csv', index=True)
 raw_date = dataset["updated"]
-parsed_date = datetime.strptime(raw_date, '%Y-%m-%d')
+parsed_date = datetime.strptime(raw_date, '%Y-%m-%dT%H:%M:%S%z')
 chart_date = 'Data last published: ' + parsed_date.strftime ('%d/%m/%y')
 
 #Electricity price by consumer group Europe
@@ -89,7 +89,7 @@ df_new = df.pivot(index='Geopolitical entity (reporting)', columns='Time', value
 df_new.drop(index={'Ukraine','United Kingdom'}, inplace=True)
 df_new.to_csv('data/Electricity_Prices_Consumers_Groups_Europe.csv', index=True)
 raw_date = dataset["updated"]
-parsed_date = datetime.strptime(raw_date, '%Y-%m-%d')
+parsed_date = datetime.strptime(raw_date, '%Y-%m-%dT%H:%M:%S%z')
 chart_date = 'Data last published: ' + parsed_date.strftime ('%d/%m/%y')
 
 #Natural gas price by consumer group Europe
@@ -101,7 +101,7 @@ df_new = df.pivot(index='Geopolitical entity (reporting)', columns='Time', value
 df_new.drop(index={'Ukraine','United Kingdom'}, inplace=True)
 df_new.to_csv('data/Natural_Gas_Prices_Consumers_Groups_Europe.csv', index=True)
 raw_date = dataset["updated"]
-parsed_date = datetime.strptime(raw_date, '%Y-%m-%d')
+parsed_date = datetime.strptime(raw_date, '%Y-%m-%dT%H:%M:%S%z')
 chart_date = 'Data last published: ' + parsed_date.strftime ('%d/%m/%y')
 
 #Electricity price consumers composition Europe
@@ -113,7 +113,7 @@ df_new = df.pivot(index='Geopolitical entity (reporting)', columns='Time', value
 df_new.drop(index={'Ukraine','United Kingdom'}, inplace=True)
 df_new.to_csv('data/Electricity_Prices_Consumers_Composition_Europe.csv', index=True)
 raw_date = dataset["updated"]
-parsed_date = datetime.strptime(raw_date, '%Y-%m-%d')
+parsed_date = datetime.strptime(raw_date, '%Y-%m-%dT%H:%M:%S%z')
 chart_date = 'Data last published: ' + parsed_date.strftime ('%d/%m/%y')
 
 #Natural gas price consumers composition Europe
@@ -125,7 +125,7 @@ df_new = df.pivot(index='Geopolitical entity (reporting)', columns='Time', value
 df_new.drop(index={'Ukraine','United Kingdom'}, inplace=True)
 df_new.to_csv('data/Natural_Gas_Prices_Consumers_Composition_Europe.csv', index=True)
 raw_date = dataset["updated"]
-parsed_date = datetime.strptime(raw_date, '%Y-%m-%d')
+parsed_date = datetime.strptime(raw_date, '%Y-%m-%dT%H:%M:%S%z')
 chart_date = 'Data last published: ' + parsed_date.strftime ('%d/%m/%y')
 
 #Electricity price consumers PPS Europe
@@ -147,7 +147,7 @@ df_new=pd.concat([df_new_pps, df_new_eur], axis=1)
 df_new.dropna(inplace=True)
 df_new.to_csv('data/Electricity_Prices_Consumers_PPS_Europe.csv', index=True)
 raw_date = dataset["updated"]
-parsed_date = datetime.strptime(raw_date, '%Y-%m-%d')
+parsed_date = datetime.strptime(raw_date, '%Y-%m-%dT%H:%M:%S%z')
 chart_date = 'Data last published: ' + parsed_date.strftime ('%d/%m/%y')
 
 #Natural gas price consumers PPS Europe
@@ -169,5 +169,5 @@ df_new=pd.concat([df_new_pps, df_new_eur], axis=1)
 df_new.dropna(inplace=True)
 df_new.to_csv('data/Natural_Gas_Prices_Consumers_PPS_Europe.csv', index=True)
 raw_date = dataset["updated"]
-parsed_date = datetime.strptime(raw_date, '%Y-%m-%d')
+parsed_date = datetime.strptime(raw_date, '%Y-%m-%dT%H:%M:%S%z')
 chart_date = 'Data last published: ' + parsed_date.strftime ('%d/%m/%y')
