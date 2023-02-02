@@ -1,4 +1,4 @@
-geo,Band D1 : Consumption < 20 GJ,Band D2 : 20 GJ < Consumption < 200 GJ,Band D3 : Consumption > 200 GJ
+Geopolitical entity (reporting),Band D1 : Consumption < 20 GJ,Band D2 : 20 GJ < Consumption < 200 GJ,Band D3 : Consumption > 200 GJ
 Albania,0.0,0.0,0.0
 Austria,0.1095,0.0767,0.0765
 Belgium,0.1111,0.0939,0.0891

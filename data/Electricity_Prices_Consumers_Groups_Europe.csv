@@ -1,4 +1,4 @@
-geo,Band DA : Consumption < 1 000 kWh,Band DB : 1 000 kWh < Consumption < 2 500 kWh,Band DC : 2 500 kWh < Consumption < 5 000 kWh,Band DD : 5 000 kWh < Consumption < 15 000 kWh,Band DE : Consumption > 15 000 kWh
+Geopolitical entity (reporting),Band DA : Consumption < 1 000 kWh,Band DB : 1 000 kWh < Consumption < 2 500 kWh,Band DC : 2 500 kWh < Consumption < 5 000 kWh,Band DD : 5 000 kWh < Consumption < 15 000 kWh,Band DE : Consumption > 15 000 kWh
 Albania,0.0941,0.0941,0.0941,0.0941,0.0941
 Austria,0.3748,0.2616,0.2249,0.1998,0.185
 Belgium,0.4774,0.3564,0.3377,0.3243,0.3
