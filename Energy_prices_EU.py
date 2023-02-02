@@ -162,7 +162,7 @@ dataset = pyjstat.Dataset.read('https://ec.europa.eu/eurostat/api/dissemination/
 type(dataset)
 df_eur = dataset.write('dataframe')
 df_eur=df_eur.replace({'Bosnia and Herzegovina':'Bosnia and Herz.','Czechia':'Czech Rep.','Euro area (EA11-1999, EA12-2001, EA13-2007, EA15-2008, EA16-2009, EA17-2011, EA18-2014, EA19-2015, EA20-2023)':'Euro area', 'European Union - 27 countries (from 2020)':'EU27', 'Germany (until 1990 former territory of the FRG)':'Germany', 'Kosovo (under United Nations Security Council Resolution 1244/99)':'Kosovo','Türkiye':'Turkey'})
-df_new_eur = df_eur.pivot(index='geo', columns='Time', values='value')
+df_new_eur = df_eur.pivot(index='Geopolitical entity (reporting)', columns='Time', values='value')
 df_new_eur.rename(columns={'2022S1': 'EUR'},inplace=True)
 df_new_eur.drop(index={'Ukraine','United Kingdom'}, inplace=True)
 df_new=pd.concat([df_new_pps, df_new_eur], axis=1)
