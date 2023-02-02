@@ -61,7 +61,7 @@ df = dataset.write('dataframe')
 df=df.replace({'Bosnia and Herzegovina':'Bosnia and Herz.','Czechia':'Czech Rep.','Euro area (EA11-1999, EA12-2001, EA13-2007, EA15-2008, EA16-2009, EA17-2011, EA18-2014, EA19-2015, EA20-2023)':'Euro area', 'European Union - 27 countries (from 2020)':'EU27', 'Germany (until 1990 former territory of the FRG)':'Germany', 'Kosovo (under United Nations Security Council Resolution 1244/99)':'Kosovo','Türkiye':'Turkey'})
 df_new = df.pivot(index='Geopolitical entity (reporting)', columns='Time', values='value')
 df_new.drop(index={'Euro area','Ukraine','United Kingdom', 'Turkey'}, inplace=True)
-df_new['Pct change'] = df_new[['2021S1','2022S1']].pct_change(axis=1)['2022S1']*100
+df_new['Pct change'] = df_new[['2021-S1','2022-S1']].pct_change(axis=1)['2022-S1']*100
 df_new.to_csv('data/Electricity_Prices_Consumers_Change_Europe.csv', index=True)
 raw_date = dataset["updated"]
 parsed_date = datetime.strptime(raw_date, '%Y-%m-%dT%H:%M:%S%z')
@@ -74,7 +74,7 @@ df = dataset.write('dataframe')
 df=df.replace({'Bosnia and Herzegovina':'Bosnia and Herz.','Czechia':'Czech Rep.','Euro area (EA11-1999, EA12-2001, EA13-2007, EA15-2008, EA16-2009, EA17-2011, EA18-2014, EA19-2015, EA20-2023)':'Euro area', 'European Union - 27 countries (from 2020)':'EU27', 'Germany (until 1990 former territory of the FRG)':'Germany', 'Kosovo (under United Nations Security Council Resolution 1244/99)':'Kosovo','Türkiye':'Turkey'})
 df_new = df.pivot(index='Geopolitical entity (reporting)', columns='Time', values='value')
 df_new.drop(index={'Euro area','Ukraine','United Kingdom', 'Turkey'}, inplace=True)
-df_new['Pct change'] = df_new[['2021S1','2022S1']].pct_change(axis=1)['2022S1']*100
+df_new['Pct change'] = df_new[['2021-S1','2022-S1']].pct_change(axis=1)['2022-S1']*100
 df_new.to_csv('data/Natural_Gas_Prices_Consumers_Change_Europe.csv', index=True)
 raw_date = dataset["updated"]
 parsed_date = datetime.strptime(raw_date, '%Y-%m-%dT%H:%M:%S%z')
