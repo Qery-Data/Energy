@@ -2,7 +2,7 @@ name: Energy Prices EU
 on: 
   workflow_dispatch:
   schedule:
-    - cron: "5 7 * * *"
+    - cron: "5 9 * * *"
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
