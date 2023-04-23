@@ -1,5 +1,5 @@
 Geopolitical entity (reporting),Band DA : Consumption < 1 000 kWh,Band DB : 1 000 kWh < Consumption < 2 500 kWh,Band DC : 2 500 kWh < Consumption < 5 000 kWh,Band DD : 5 000 kWh < Consumption < 15 000 kWh,Band DE : Consumption > 15 000 kWh
-Albania,,,,,
+Albania,0.0976,0.0976,0.0976,0.0976,0.0976
 Austria,0.364,0.2614,0.237,0.2228,0.2196
 Belgium,0.5556,0.4586,0.4489,0.4437,0.4397
 Bosnia and Herz.,0.1975,0.1003,0.0893,0.0838,0.0783
@@ -29,10 +29,10 @@ Malta,0.3539,0.1456,0.1277,0.1412,0.3137
 Moldova,0.1713,0.1979,0.2245,0.2059,0.1684
 Montenegro,,,,,
 Netherlands,-0.8096,-0.1079,0.135,0.2435,
-North Macedonia,,,,,
+North Macedonia,0.1037,0.1033,0.103,0.1041,0.1209
 Norway,0.5277,0.3376,0.2302,0.1715,0.1539
 Poland,0.2323,0.1767,0.1604,0.1473,0.1427
-Portugal,,,,,
+Portugal,0.4199,0.2461,0.2222,0.213,0.2048
 Romania,0.3591,0.345,0.3411,0.335,0.2853
 Serbia,0.2841,0.1028,0.0869,0.0871,0.1067
 Slovakia,0.2886,0.2106,0.1884,0.1682,0.1532
