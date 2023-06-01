@@ -3,7 +3,7 @@ import requests
 import io
 import os
 import time
-os.makedirs('data_IRENA_renewable_energy', exist_ok=True)
+os.makedirs('data_IRENA', exist_ok=True)
 
 #IRENA Renewable Energy Capacity Data per Country/region/area
 def process_data(url: str, filename_start: str) -> None:
@@ -135,23 +135,23 @@ def process_data(url: str, filename_start: str) -> None:
     return data
     
 urls = [
-    {"url": "https://pxweb.irena.org:443/sq/5f992bbc-6a3e-40ff-a803-50e3ee112875", "start filename": "data/IRENA_Total_Renewable_Capacity"},
-    {"url": "https://pxweb.irena.org:443/sq/d22cf986-2bcd-403f-ae41-982e80ff5234", "start filename": "data/IRENA_Solar_Capacity"},
-    {"url": "https://pxweb.irena.org:443/sq/9cd4cf9b-a150-4482-a122-9d0262884580", "start filename": "data/IRENA_Solar_Photovoltaic_Capacity"},
-    {"url": "https://pxweb.irena.org:443/sq/cb0d1458-fe7f-4acd-8a30-ead7056fa7b6", "start filename": "data/IRENA_Solar_Concentrated_Power_Capacity"},    
-    {"url": "https://pxweb.irena.org:443/sq/98abee2b-b13e-493c-9936-8fa7fb3bcd75", "start filename": "data/IRENA_Wind_Capacity"},
-    {"url": "https://pxweb.irena.org:443/sq/f1d4b002-b9c2-4f21-8a4c-9c162c6dbebe", "start filename": "data/IRENA_Wind_Onshore_Capacity"},
-    {"url": "https://pxweb.irena.org:443/sq/3a2a0d76-9ac0-4f12-b3ca-a0dc57817fe2", "start filename": "data/IRENA_Wind_Offshore_Capacity"},         
-    {"url": "https://pxweb.irena.org:443/sq/1eadead1-760e-48f1-a0b1-20da7ce57bc9", "start filename": "data/IRENA_Hydropower_Capacity"},
-    {"url": "https://pxweb.irena.org:443/sq/27476093-9aa2-4153-9f2d-29284f5b8606", "start filename": "data/IRENA_Hydropower_Renewable_Hydro_Capacity"},        
-    {"url": "https://pxweb.irena.org:443/sq/453382db-3986-4c4c-9914-449d0f0f880a", "start filename": "data/IRENA_Pumped_Storage_Capacity"},    
-    {"url": "https://pxweb.irena.org:443/sq/237533e3-e447-4d8d-9ff9-f7e66a0685d7", "start filename": "data/IRENA_Bioenergy_Capacity"},
-    {"url": "https://pxweb.irena.org:443/sq/09cb12b8-74d1-43c3-8c76-ff01453ab62f", "start filename": "data/IRENA_Bioenergy_Biogas_Capacity"},
-    {"url": "https://pxweb.irena.org:443/sq/5d09f55f-e1bc-432b-9498-e587b21980df", "start filename": "data/IRENA_Bioenergy_Liquid_Biofuels_Capacity"},
-    {"url": "https://pxweb.irena.org:443/sq/64cb91c7-4fa0-4b79-bee7-7b801b69b400", "start filename": "data/IRENA_Bioenergy_Renewable_Municipal_Waste_Capacity"},
-    {"url": "https://pxweb.irena.org:443/sq/c5c6492c-9167-4132-87e4-a549115a8812", "start filename": "data/IRENA_Bioenergy_Solid_Biofuels_Capacity"},
-    {"url": "https://pxweb.irena.org:443/sq/8c0f0fc6-6df5-4654-8427-4501ec19185e", "start filename": "data/IRENA_Marine_Energy_Capacity"},
-    {"url": "https://pxweb.irena.org:443/sq/6e165525-65c2-4a9f-9973-1d9cba36d89f", "start filename": "data/IRENA_Geothermal_Capacity"}  
+    {"url": "https://pxweb.irena.org:443/sq/5f992bbc-6a3e-40ff-a803-50e3ee112875", "start filename": "data_IRENA/IRENA_Total_Renewable_Capacity"},
+    {"url": "https://pxweb.irena.org:443/sq/d22cf986-2bcd-403f-ae41-982e80ff5234", "start filename": "data_IRENA/IRENA_Solar_Capacity"},
+    {"url": "https://pxweb.irena.org:443/sq/9cd4cf9b-a150-4482-a122-9d0262884580", "start filename": "data_IRENA/IRENA_Solar_Photovoltaic_Capacity"},
+    {"url": "https://pxweb.irena.org:443/sq/cb0d1458-fe7f-4acd-8a30-ead7056fa7b6", "start filename": "data_IRENA/IRENA_Solar_Concentrated_Power_Capacity"},    
+    {"url": "https://pxweb.irena.org:443/sq/98abee2b-b13e-493c-9936-8fa7fb3bcd75", "start filename": "data_IRENA/IRENA_Wind_Capacity"},
+    {"url": "https://pxweb.irena.org:443/sq/f1d4b002-b9c2-4f21-8a4c-9c162c6dbebe", "start filename": "data_IRENA/IRENA_Wind_Onshore_Capacity"},
+    {"url": "https://pxweb.irena.org:443/sq/3a2a0d76-9ac0-4f12-b3ca-a0dc57817fe2", "start filename": "data_IRENA/IRENA_Wind_Offshore_Capacity"},         
+    {"url": "https://pxweb.irena.org:443/sq/1eadead1-760e-48f1-a0b1-20da7ce57bc9", "start filename": "data_IRENA/IRENA_Hydropower_Capacity"},
+    {"url": "https://pxweb.irena.org:443/sq/27476093-9aa2-4153-9f2d-29284f5b8606", "start filename": "data_IRENA/IRENA_Hydropower_Renewable_Hydro_Capacity"},        
+    {"url": "https://pxweb.irena.org:443/sq/453382db-3986-4c4c-9914-449d0f0f880a", "start filename": "data_IRENA/IRENA_Pumped_Storage_Capacity"},    
+    {"url": "https://pxweb.irena.org:443/sq/237533e3-e447-4d8d-9ff9-f7e66a0685d7", "start filename": "data_IRENA/IRENA_Bioenergy_Capacity"},
+    {"url": "https://pxweb.irena.org:443/sq/09cb12b8-74d1-43c3-8c76-ff01453ab62f", "start filename": "data_IRENA/IRENA_Bioenergy_Biogas_Capacity"},
+    {"url": "https://pxweb.irena.org:443/sq/5d09f55f-e1bc-432b-9498-e587b21980df", "start filename": "data_IRENA/IRENA_Bioenergy_Liquid_Biofuels_Capacity"},
+    {"url": "https://pxweb.irena.org:443/sq/64cb91c7-4fa0-4b79-bee7-7b801b69b400", "start filename": "data_IRENA/IRENA_Bioenergy_Renewable_Municipal_Waste_Capacity"},
+    {"url": "https://pxweb.irena.org:443/sq/c5c6492c-9167-4132-87e4-a549115a8812", "start filename": "data_IRENA/IRENA_Bioenergy_Solid_Biofuels_Capacity"},
+    {"url": "https://pxweb.irena.org:443/sq/8c0f0fc6-6df5-4654-8427-4501ec19185e", "start filename": "data_IRENA/IRENA_Marine_Energy_Capacity"},
+    {"url": "https://pxweb.irena.org:443/sq/6e165525-65c2-4a9f-9973-1d9cba36d89f", "start filename": "data_IRENA/IRENA_Geothermal_Capacity"}  
 ]
 
 for url_info in urls:
@@ -183,8 +183,8 @@ def process_data(url, year_range):
 
         # Drop unwanted columns and save
         data_per_technology.drop('Region/country/area', axis=1, inplace=True)
-        data_per_technology.sort_values(by=str(year_range[-1]), ascending=False).to_csv('data/IRENA_Total_Renewable_Cumulative_Per_Technology.csv', index=False)
-        data_net_additions_per_technology.sort_values(by=str(year_range[-1]), ascending=False).to_csv('data/IRENA_Total_Renewable_Net_Additions_Per_Technology.csv', index=False)
+        data_per_technology.sort_values(by=str(year_range[-1]), ascending=False).to_csv('data_IRENA/IRENA_Total_Renewable_Cumulative_Per_Technology.csv', index=False)
+        data_net_additions_per_technology.sort_values(by=str(year_range[-1]), ascending=False).to_csv('data_IRENA/IRENA_Total_Renewable_Net_Additions_Per_Technology.csv', index=False)
 
         # Calculate share of each technology
         year_range_str = [str(year) for year in year_range]  # convert years to strings
@@ -202,33 +202,33 @@ def process_data(url, year_range):
         technology_share_per_year = technology_share_per_year.sort_values(by=[latest_year], ascending=False)
 
         # Save the share data to CSV
-        technology_share_per_year.to_csv('data/IRENA_Total_Renewable_Cumulative_Per_Technology_Share.csv', index=False)
+        technology_share_per_year.to_csv('data_IRENA/IRENA_Total_Renewable_Cumulative_Per_Technology_Share.csv', index=False)
 
         # Process total renewable data
         total_renewable = data[data['Technology'] == 'Total renewable energy']
         total_renewable_net_additions = data_net_additions[data_net_additions['Technology'] == 'Total renewable energy']
 
         # Sort and Save the total renewable data to CSV files
-        total_renewable.sort_values(by=str(year_range[-1]), ascending=False).to_csv('data/IRENA_Total_Renewable_Cumulative_World.csv', index=False)
-        total_renewable_net_additions.sort_values(by=str(year_range[-1]), ascending=False).to_csv('data/IRENA_Total_Renewable_Net_Additions_World.csv', index=False)
+        total_renewable.sort_values(by=str(year_range[-1]), ascending=False).to_csv('data_IRENA/IRENA_Total_Renewable_Cumulative_World.csv', index=False)
+        total_renewable_net_additions.sort_values(by=str(year_range[-1]), ascending=False).to_csv('data_IRENA/IRENA_Total_Renewable_Net_Additions_World.csv', index=False)
 
         #Wind sub-technologies
         wind_sub_technologies = ['Onshore wind energy', 'Offshore wind energy']
         data_wind_sub_tech = data[data['Technology'].isin(wind_sub_technologies)].copy()
         data_wind_sub_tech.drop('Region/country/area', axis=1, inplace=True)
-        data_wind_sub_tech.sort_values(by=str(year_range[-1]), ascending=False).to_csv('data/IRENA_Wind_Sub_Technology_Cumulative_Capacity.csv', index=False)
+        data_wind_sub_tech.sort_values(by=str(year_range[-1]), ascending=False).to_csv('data_IRENA/IRENA_Wind_Sub_Technology_Cumulative_Capacity.csv', index=False)
         data_net_additions_wind_sub_tech = data_net_additions[data_net_additions['Technology'].isin(wind_sub_technologies)].copy()
         data_net_additions_wind_sub_tech.drop('Region/country/area', axis=1, inplace=True)
-        data_net_additions_wind_sub_tech.sort_values(by=str(year_range[-1]), ascending=False).to_csv('data/IRENA_Wind_Sub_Technology_Net_Additional_Capacity.csv', index=False)
+        data_net_additions_wind_sub_tech.sort_values(by=str(year_range[-1]), ascending=False).to_csv('data_IRENA/IRENA_Wind_Sub_Technology_Net_Additional_Capacity.csv', index=False)
 
         # Solar sub-technologies
         solar_sub_technologies = ['Solar photovoltaic', 'Concentrated solar power']
         data_solar_sub_tech = data[data['Technology'].isin(solar_sub_technologies)].copy()
         data_solar_sub_tech.drop('Region/country/area', axis=1, inplace=True)
-        data_solar_sub_tech.sort_values(by=str(year_range[-1]), ascending=False).to_csv('data/IRENA_Solar_Sub_Technology_Cumulative_Capacity.csv', index=False)
+        data_solar_sub_tech.sort_values(by=str(year_range[-1]), ascending=False).to_csv('data_IRENA/IRENA_Solar_Sub_Technology_Cumulative_Capacity.csv', index=False)
         data_net_additions_solar_sub_tech = data_net_additions[data_net_additions['Technology'].isin(solar_sub_technologies)].copy()
         data_net_additions_solar_sub_tech.drop('Region/country/area', axis=1, inplace=True)
-        data_net_additions_solar_sub_tech.sort_values(by=str(year_range[-1]), ascending=False).to_csv('data/IRENA_Solar_Sub_Technology_Net_Additional_Capacity.csv', index=False)
+        data_net_additions_solar_sub_tech.sort_values(by=str(year_range[-1]), ascending=False).to_csv('data_IRENA/IRENA_Solar_Sub_Technology_Net_Additional_Capacity.csv', index=False)
 
 # Call the function with your URL and year range
 url = "https://pxweb.irena.org:443/sq/704ded05-efd7-40cf-9aa0-317172b23265"

@@ -28,7 +28,7 @@ jobs:
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           git add -A
           timestamp=$(date -u +%Y-%m-%d-%H-%M-%S)
-          branch_name="energy-eurostat-data-update-${timestamp}"
+          branch_name="energy-IRENA-data-update-${timestamp}"
           git checkout -b "${branch_name}"
           git commit -m "Latest data: ${timestamp}" || exit 0
           git push origin "${branch_name}"
