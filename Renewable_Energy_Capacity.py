@@ -39,10 +39,12 @@ def process_data(url: str, filename_start: str) -> None:
     regions_data.drop('Technology', axis=1, inplace=True)
     regions_data = regions_data.loc[~(regions_data[years]==0).all(axis=1)]
     latest_year = str(regions_data.columns[1:].max())
-    regions_data = regions_data.sort_values(by=latest_year, ascending=False)        
+    regions_data = regions_data.sort_values(by=latest_year, ascending=False)
+    regions_data[years] = regions_data[years].round(2)        
     regions_data.to_csv(filename_start + '_Regions_Total_Per_Year.csv', index=False)
 
     countries_data.drop('Technology', axis=1, inplace=True)
+    countries_data[years] = countries_data[years].round(2)
     countries_data.to_csv(filename_start + '_Countries_Total_Per_Year.csv', index=False)
 
     # Get the top 5 countries for the latest year
@@ -64,6 +66,7 @@ def process_data(url: str, filename_start: str) -> None:
     top5['Region/country/area'] = top5['Region/country/area'].astype(str)
 
     # Write the DataFrame to a CSV file
+    top5[years] = top5[years].round(2)
     top5.to_csv(filename_start + '_Top5_Countries.csv', index=False)
 
     # Create an empty DataFrame for regions net additions
@@ -85,7 +88,8 @@ def process_data(url: str, filename_start: str) -> None:
     years = [str(year) for year in range(int(regions_net_additions.columns[1:].min()), int(regions_net_additions.columns[1:].max()) + 1)]
     regions_net_additions = regions_net_additions.loc[~(regions_net_additions[years]==0).all(axis=1)]
     latest_year = str(regions_net_additions.columns[1:].max())
-    regions_net_additions = regions_net_additions.sort_values(by=latest_year, ascending=False)        
+    regions_net_additions = regions_net_additions.sort_values(by=latest_year, ascending=False)
+    regions_net_additions[years] = regions_net_additions[years].round(2)        
     regions_net_additions.to_csv(filename_start + '_Regions_Net_Additions.csv', index=False)
 
     
@@ -97,15 +101,18 @@ def process_data(url: str, filename_start: str) -> None:
     cols = countries_net_additions.columns.tolist()
     cols = cols[-1:] + cols[:-1]
     countries_net_additions = countries_net_additions[cols]
+    countries_net_additions[years] = countries_net_additions[years].round(2)
     countries_net_additions.to_csv(filename_start + '_Countries_Net_Additions_Per_Year.csv', index=False)
 
     # Save the latest year data and net additions for countries with non-zero values
     latest_countries_data = countries_data[['Region/country/area', latest_year]]
     latest_countries_data = latest_countries_data[latest_countries_data[latest_year] != 0]
+    latest_countries_data[latest_year] = latest_countries_data[latest_year].round(2)
     latest_countries_data.to_csv(filename_start + '_Countries_Total_Latest_Year.csv', index=False)
     
     latest_countries_net_additions = countries_net_additions[['Region/country/area', latest_year]]
     latest_countries_net_additions = latest_countries_net_additions[latest_countries_net_additions[latest_year] != 0]
+    latest_countries_net_additions[latest_year] = latest_countries_net_additions[latest_year].round(2)
     latest_countries_net_additions.to_csv(filename_start + '_Countries_Net_Additions_Latest_Year.csv', index=False)
 
     # Calculate the total for each year
@@ -130,6 +137,7 @@ def process_data(url: str, filename_start: str) -> None:
     regions_share_per_year.sort_values(by=regions_share_per_year.columns[-1], ascending=False, inplace=True)
 
     # Write the DataFrame to a CSV file
+    regions_share_per_year[years] = regions_share_per_year[years].round(2)
     regions_share_per_year.to_csv(filename_start + '_Regions_Share_Per_Year.csv', index=False)
 
     return data
@@ -183,7 +191,9 @@ def process_data(url, year_range):
 
         # Drop unwanted columns and save
         data_per_technology.drop('Region/country/area', axis=1, inplace=True)
+        data_per_technology = data_per_technology.round(2)
         data_per_technology.sort_values(by=str(year_range[-1]), ascending=False).to_csv('data_IRENA/IRENA_Total_Renewable_Cumulative_Per_Technology.csv', index=False)
+        data_net_additions_per_technology = data_net_additions_per_technology.round(2)
         data_net_additions_per_technology.sort_values(by=str(year_range[-1]), ascending=False).to_csv('data_IRENA/IRENA_Total_Renewable_Net_Additions_Per_Technology.csv', index=False)
 
         # Calculate share of each technology
@@ -205,6 +215,7 @@ def process_data(url, year_range):
         technology_share_per_year = technology_share_per_year.sort_values(by=[latest_year], ascending=False)
 
         # Save the share data to CSV
+        technology_share_per_year = technology_share_per_year.round(2)
         technology_share_per_year.to_csv('data_IRENA/IRENA_Total_Renewable_Cumulative_Per_Technology_Share.csv', index=False)
 
         # Process total renewable data
@@ -212,25 +223,31 @@ def process_data(url, year_range):
         total_renewable_net_additions = data_net_additions[data_net_additions['Technology'] == 'Total renewable energy']
 
         # Sort and Save the total renewable data to CSV files
+        total_renewable = total_renewable.round(2)
         total_renewable.sort_values(by=str(year_range[-1]), ascending=False).to_csv('data_IRENA/IRENA_Total_Renewable_Cumulative_World.csv', index=False)
+        total_renewable_net_additions = total_renewable_net_additions.round(2)
         total_renewable_net_additions.sort_values(by=str(year_range[-1]), ascending=False).to_csv('data_IRENA/IRENA_Total_Renewable_Net_Additions_World.csv', index=False)
 
         #Wind sub-technologies
         wind_sub_technologies = ['Onshore wind energy', 'Offshore wind energy']
         data_wind_sub_tech = data[data['Technology'].isin(wind_sub_technologies)].copy()
         data_wind_sub_tech.drop('Region/country/area', axis=1, inplace=True)
+        data_wind_sub_tech = data_wind_sub_tech.round(2)
         data_wind_sub_tech.sort_values(by=str(year_range[-1]), ascending=False).to_csv('data_IRENA/IRENA_Wind_Sub_Technology_Cumulative_Capacity.csv', index=False)
         data_net_additions_wind_sub_tech = data_net_additions[data_net_additions['Technology'].isin(wind_sub_technologies)].copy()
         data_net_additions_wind_sub_tech.drop('Region/country/area', axis=1, inplace=True)
+        data_net_additions_wind_sub_tech = data_net_additions_wind_sub_tech.round(2)
         data_net_additions_wind_sub_tech.sort_values(by=str(year_range[-1]), ascending=False).to_csv('data_IRENA/IRENA_Wind_Sub_Technology_Net_Additional_Capacity.csv', index=False)
 
         # Solar sub-technologies
         solar_sub_technologies = ['Solar photovoltaic', 'Concentrated solar power']
         data_solar_sub_tech = data[data['Technology'].isin(solar_sub_technologies)].copy()
         data_solar_sub_tech.drop('Region/country/area', axis=1, inplace=True)
+        data_solar_sub_tech = data_solar_sub_tech.round(2)
         data_solar_sub_tech.sort_values(by=str(year_range[-1]), ascending=False).to_csv('data_IRENA/IRENA_Solar_Sub_Technology_Cumulative_Capacity.csv', index=False)
         data_net_additions_solar_sub_tech = data_net_additions[data_net_additions['Technology'].isin(solar_sub_technologies)].copy()
         data_net_additions_solar_sub_tech.drop('Region/country/area', axis=1, inplace=True)
+        data_net_additions_solar_sub_tech = data_net_additions_solar_sub_tech.round(2)
         data_net_additions_solar_sub_tech.sort_values(by=str(year_range[-1]), ascending=False).to_csv('data_IRENA/IRENA_Solar_Sub_Technology_Net_Additional_Capacity.csv', index=False)
 
 # Call the function with your URL and year range
