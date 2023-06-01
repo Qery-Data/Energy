@@ -101,7 +101,6 @@ def process_data(url: str, filename_start: str) -> None:
     cols = countries_net_additions.columns.tolist()
     cols = cols[-1:] + cols[:-1]
     countries_net_additions = countries_net_additions[cols]
-    countries_net_additions[years] = countries_net_additions[years].round(2)
     countries_net_additions.to_csv(filename_start + '_Countries_Net_Additions_Per_Year.csv', index=False)
 
     # Save the latest year data and net additions for countries with non-zero values
