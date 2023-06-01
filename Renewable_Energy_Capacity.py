@@ -194,6 +194,9 @@ def process_data(url, year_range):
         # Multiply by 100 to get percentages
         technology_share_per_year = technology_share_per_year * 100
 
+        # Round the values to 2 decimal places
+        technology_share_per_year = technology_share_per_year.round(2)
+
         # Insert 'Technology' column to technology_share_per_year dataframe
         technology_share_per_year.insert(0, 'Technology', data_per_technology['Technology'])
 
