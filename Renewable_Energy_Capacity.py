@@ -223,10 +223,10 @@ def process_data(url, year_range):
 
         # Sort and Save the total renewable data to CSV files
         total_renewable = total_renewable.round(2)
-        total_renewable = total_renewable.drop('Region/country/area', axis=1, inplace=True)
+        total_renewable.drop('Region/country/area', axis=1, inplace=True)
         total_renewable.sort_values(by=str(year_range[-1]), ascending=False).to_csv('data_IRENA/IRENA_Total_Renewable_Cumulative_World.csv', index=False)
         total_renewable_net_additions = total_renewable_net_additions.round(2)
-        total_renewable_net_additions = total_renewable_net_additions.drop('Region/country/area', axis=1, inplace=True)
+        total_renewable_net_additions.drop('Region/country/area', axis=1, inplace=True)
         total_renewable_net_additions.sort_values(by=str(year_range[-1]), ascending=False).to_csv('data_IRENA/IRENA_Total_Renewable_Net_Additions_World.csv', index=False)
 
         #Wind sub-technologies
