@@ -183,12 +183,10 @@ def process_data(url, year_range):
         for year in year_range[1:]:
             data_net_additions[str(year)] = data[str(year)] - data[str(year - 1)]
         
-        # Select technologies of interest
+        #Data per main technology
         technologies = ['Renewable hydropower', 'Wind', 'Solar', 'Geothermal', 'Bioenergy', 'Marine']
         data_per_technology = data[data['Technology'].isin(technologies)].copy()
         data_net_additions_per_technology = data_net_additions[data_net_additions['Technology'].isin(technologies)].copy()
-
-        # Drop unwanted columns and save
         data_per_technology = data_per_technology.round(2)
         data_per_technology.drop('Region/country/area', axis=1, inplace=True)
         data_per_technology.sort_values(by=str(year_range[-1]), ascending=False).to_csv('data_IRENA/IRENA_Total_Renewable_Cumulative_Per_Technology.csv', index=False)
@@ -200,29 +198,17 @@ def process_data(url, year_range):
         year_range_str = [str(year) for year in year_range]  # convert years to strings
         total_per_year = data_per_technology[year_range_str].sum()
         technology_share_per_year = data_per_technology[year_range_str].divide(total_per_year, axis=1)
-
-        # Multiply by 100 to get percentages
         technology_share_per_year = technology_share_per_year * 100
-
-        # Round the values to 2 decimal places
         technology_share_per_year = technology_share_per_year.round(2)
-
-        # Insert 'Technology' column to technology_share_per_year dataframe
         technology_share_per_year.insert(0, 'Technology', data_per_technology['Technology'])
-
-        # Sort the dataframe based on the latest year
         latest_year = str(year_range[-1])
         technology_share_per_year = technology_share_per_year.sort_values(by=[latest_year], ascending=False)
-
-        # Save the share data to CSV
         technology_share_per_year = technology_share_per_year.round(2)
         technology_share_per_year.to_csv('data_IRENA/IRENA_Total_Renewable_Cumulative_Per_Technology_Share.csv', index=False)
 
-        # Process total renewable data
+        #Data for total renewables
         total_renewable = data[data['Technology'] == 'Total renewable energy']
         total_renewable_net_additions = data_net_additions[data_net_additions['Technology'] == 'Total renewable energy']
-
-        # Sort and Save the total renewable data to CSV files
         total_renewable = total_renewable.round(2)
         total_renewable.drop('Region/country/area', axis=1, inplace=True)
         total_renewable.sort_values(by=str(year_range[-1]), ascending=False).to_csv('data_IRENA/IRENA_Total_Renewable_Cumulative_World.csv', index=False)
