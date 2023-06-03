@@ -182,6 +182,7 @@ def process_data(url, year_range):
         data_net_additions = data.copy()
         for year in year_range[1:]:
             data_net_additions[str(year)] = data[str(year)] - data[str(year - 1)]
+        data_net_additions[str(year_range[0])] = None
         
         #Data per main technology
         technologies = ['Renewable hydropower', 'Wind', 'Solar', 'Geothermal', 'Bioenergy', 'Marine']
@@ -192,6 +193,7 @@ def process_data(url, year_range):
         data_per_technology.sort_values(by=str(year_range[-1]), ascending=False).to_csv('data_IRENA/IRENA_Total_Renewable_Cumulative_Per_Technology.csv', index=False)
         data_net_additions_per_technology = data_net_additions_per_technology.round(2)
         data_net_additions_per_technology.drop('Region/country/area', axis=1, inplace=True)
+        data_net_additions_per_technology.drop(str(year_range[0]), axis=1, inplace=True) 
         data_net_additions_per_technology.sort_values(by=str(year_range[-1]), ascending=False).to_csv('data_IRENA/IRENA_Total_Renewable_Net_Additions_Per_Technology.csv', index=False)
 
         # Calculate share of each technology
