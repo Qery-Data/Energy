@@ -31,9 +31,6 @@ def publish_charts(chart_ids, access_token):
         }
         response = requests.post(url, headers=headers)
 
-        # Print out the response status and content
-        print(f"Publishing chart {chart_id} resulted in status {response.status_code} with content: {response.text}")
-
 # Main execution
 def main():
     access_token = os.getenv('DW_TOKEN')
