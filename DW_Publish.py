@@ -1,5 +1,6 @@
 import requests
 import json
+import os
 
 # Recursive function to fetch chart IDs from a folder (including its subfolders)
 def fetch_all_chart_ids(folder_id, access_token):
