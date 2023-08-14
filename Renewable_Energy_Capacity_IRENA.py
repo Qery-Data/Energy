@@ -88,7 +88,7 @@ for tech in technologies:
 #ADDITIONAL FILES FOR TECHNOLOGIES AND WIND SUBTECHNOLOGIES
 
 # Total Renewable Energy Capacity World Per Technology
-specific_technologies = ["Bioenergy", "Geothermal", "Wind", "Solar", "Renewable hydropower", "Marine", "Total renewable energy"]
+specific_technologies = ["Bioenergy", "Geothermal", "Wind", "Solar", "Renewable hydropower", "Marine"]
 filtered_tech_df = df[(df['Region/country/area'] == 'World') & (df['Technology'].isin(specific_technologies))]
 pivot_tech_df = filtered_tech_df.pivot(index='Technology', columns='Year', values='value').round(2)
 pivot_tech_df = pivot_tech_df.sort_values(by=pivot_tech_df.columns[-1], ascending=False)
