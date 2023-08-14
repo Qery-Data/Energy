@@ -43,7 +43,7 @@ df = dataset.write('dataframe')
 
 # Define technologies list
 technologies = ['Renewable hydropower', 'Solar', 'Wind', 'Bioenergy', 'Geothermal', 'Marine']
-regions = ['Africa', 'Asia', 'C America + Carib', 'Eurasia', 'Europe', 'Middle East', 'Oceania', 'S America', 'N America']
+regions = ['Africa', 'Asia', 'Central America and the Caribbean', 'Eurasia', 'Europe', 'Middle East', 'Oceania', 'South America', 'North America']
 
 # Total Renewable Energy Capacity Cumulative World
 filtered_world_df = df[(df['Region/country/area'] == 'World') & (df['Technology'] == 'Total renewable energy')]
@@ -71,13 +71,6 @@ share_tech_df.to_csv("data_IRENA/IRENA_Total_Renewable_Cumulative_Per_Technology
 # Total Renewable Energy Capacity Cumulative Regions
 filtered_regions_df = df[(df['Region/country/area'].isin(regions)) & (df['Technology'] == 'Total renewable energy')]
 pivot_regions_df = filtered_regions_df.pivot(index='Region/country/area', columns='Year', values='value').round(2)
-
-region_mapping = {
-    'C America + Carib': 'Central America and the Caribbean',
-    'S America': 'South America',
-    'N America': 'North America'
-}
-pivot_regions_df = pivot_regions_df.rename(index=region_mapping)
 pivot_regions_df = pivot_regions_df.sort_values(by=pivot_regions_df.columns[-1], ascending=False)
 pivot_regions_df.to_csv("data_IRENA/IRENA_Total_Renewable_Capacity_Regions_Total_Per_Year.csv")
 
