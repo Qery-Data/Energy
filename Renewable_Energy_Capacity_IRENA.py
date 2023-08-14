@@ -92,11 +92,11 @@ specific_technologies = ["Bioenergy", "Geothermal", "Wind", "Solar", "Renewable 
 filtered_tech_df = df[(df['Region/country/area'] == 'World') & (df['Technology'].isin(specific_technologies))]
 pivot_tech_df = filtered_tech_df.pivot(index='Technology', columns='Year', values='value').round(2)
 pivot_tech_df = pivot_tech_df.sort_values(by=pivot_tech_df.columns[-1], ascending=False)
-pivot_tech_df.to_csv("data_IRENA_Renewable_Capacity/IRENA_Total_renewable_energy_Capacity_Per_Technology.csv")
+pivot_tech_df.to_csv("data_IRENA_Renewable_Capacity/IRENA_Total_Renewable_Energy_Capacity_Per_Technology.csv")
 
 # Total Renewable Energy Net Capacity Additions World Per Technology
 net_additions_tech_df = pivot_tech_df.diff(axis=1).drop(columns='2000').sort_values(by=pivot_tech_df.columns[-1], ascending=False).round(2)
-net_additions_tech_df.to_csv("data_IRENA_Renewable_Capacity/IRENA_Total_renewable_energy_Capacity_Per_Technology_Net_Additions.csv")
+net_additions_tech_df.to_csv("data_IRENA_Renewable_Capacity/IRENA_Total_Renewable_Energy_Capacity_Per_Technology_Net_Additions.csv")
 
 # Total Wind Sub-Technologies Capacity World Per Technology
 wind_sub_technologies = ['Onshore wind energy', 'Offshore wind energy']
