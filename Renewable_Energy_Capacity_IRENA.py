@@ -71,7 +71,7 @@ share_tech_df.to_csv("data_IRENA/IRENA_Total_Renewable_Cumulative_Per_Technology
 # Total Renewable Energy Capacity Cumulative Regions
 filtered_regions_df = df[(df['Region/country/area'].isin(regions)) & (df['Technology'] == 'Total renewable energy')]
 pivot_regions_df = filtered_regions_df.pivot(index='Region/country/area', columns='Year', values='value')
-pivot_regions_df = pivot_regions_df.sort_values(by=pivot_df.columns[-1], ascending=False)
+pivot_regions_df = pivot_regions_df.sort_values(by=pivot_regions_df.columns[-1], ascending=False)
 pivot_regions_df.to_csv("data_IRENA/IRENA_Total_Renewable_Cumulative_Regions.csv")
 
 # Total Renewable Energy Net Capacity Additions for Regions
