@@ -52,10 +52,6 @@ def generate_files_for_technology(technology, df, regions=['Africa', 'Asia', 'Ce
     net_additions_world_df = pivot_world_df.diff(axis=1).drop(columns='2000').round(2)
     net_additions_world_df.to_csv(filename_prefix + "_World_Net_Additions.csv")
 
-    # World Share
-    share_tech_df = (pivot_world_df.divide(pivot_world_df.sum(), axis=1) * 100).round(2)
-    share_tech_df.to_csv(filename_prefix + "_World_Share.csv")
-
     # Regions Data
     filtered_regions_df = df[(df['Region/country/area'].isin(regions)) & (df['Technology'] == technology)]
     pivot_regions_df = filtered_regions_df.pivot(index='Region/country/area', columns='Year', values='value').round(2)
