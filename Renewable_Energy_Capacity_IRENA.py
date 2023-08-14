@@ -74,8 +74,8 @@ def generate_files_for_technology(technology, df, regions=['Africa', 'Asia', 'Ce
     excluded_entities = regions + ['World', 'European Union']
     filtered_countries_df = df[~df['Region/country/area'].isin(excluded_entities) & (df['Technology'] == technology)]
     pivot_countries_df = filtered_countries_df.pivot(index='Region/country/area', columns='Year', values='value').round(2)
-    pivot_countries_df = pivot_countries_df.sort_values(by=pivot_countries_df.columns[-1], ascending=False)
-    pivot_countries_df.to_csv(filename_prefix + "_Countries.csv")
+    pivot_countries_df = pivot_countries_df.sort_index()
+    pivot_countries_df.to_csv(filename_prefix + "_Countries.csv")   
 
     # Countries Net Additions
     net_additions_countries_df = pivot_countries_df.diff(axis=1).drop(columns='2000').sort_values(by=pivot_countries_df.columns[-1], ascending=False).round(2)
