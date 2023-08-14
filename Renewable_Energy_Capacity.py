@@ -3,7 +3,7 @@ import requests
 import io
 import os
 import time
-os.makedirs('data_IRENA', exist_ok=True)
+os.makedirs('data_IRENA_Renewable_Capacity', exist_ok=True)
 
 #IRENA Renewable Energy Capacity Data per Country/region/area
 def process_data(url: str, filename_start: str) -> None:
