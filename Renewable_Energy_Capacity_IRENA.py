@@ -93,7 +93,7 @@ pivot_countries_df.to_csv("data_IRENA_Renewable_Capacity/IRENA_Total_Renewable_C
 latest_year = pivot_countries_df.columns[-1]
 latest_year_df = pivot_countries_df[[latest_year]].sort_values(by=latest_year, ascending=False)
 latest_year_df = latest_year_df[latest_year_df[latest_year] != 0]
-latest_year_df.to_csv(f"data_IRENA_Renewable_Capacity/IRENA_Total_Renewable_Capacity_Countries_{latest_year}.csv")
+latest_year_df.to_csv(f"data_IRENA_Renewable_Capacity/IRENA_Total_Renewable_Capacity_Countries_Latest_Year.csv")
 
 # Total Renewable Energy Net Capacity Additions Countries
 net_additions_countries_df = pivot_countries_df.diff(axis=1).drop(columns='2000').sort_values(by=pivot_countries_df.columns[-1], ascending=False).round(2)
@@ -102,4 +102,4 @@ net_additions_countries_df.to_csv("data_IRENA_Renewable_Capacity/IRENA_Total_Ren
 # Total Renewable Energy Net Capacity Additions Countries Latest Year
 latest_year_net_additions = net_additions_countries_df[[latest_year]].sort_values(by=latest_year, ascending=False)
 latest_year_net_additions = latest_year_net_additions[latest_year_net_additions[latest_year] != 0]
-latest_year_net_additions.to_csv(f"data_IRENA_Renewable_Capacity/IRENA_Total_Renewable_Capacity_Countries_Net_Additions_{latest_year}.csv")
+latest_year_net_additions.to_csv(f"data_IRENA_Renewable_Capacity/IRENA_Total_Renewable_Capacity_Countries_Net_Additions_Latest_Year.csv")
