@@ -118,7 +118,7 @@ net_additions_wind_subtech_df = pivot_wind_subtech_df.diff(axis=1).drop(columns=
 net_additions_wind_subtech_df.to_csv("data_IRENA_Renewable_Capacity/IRENA_Wind_Sub_Technologies_Capacity_Per_Technology_Net_Additions.csv")
 
 
-#ADDITIONAL FILES FOR RENEWABLE ENERGY SHARES
+#ADDITIONAL FILES FOR RENEWABLE ENERGY SHARES OF TOTAL CAPACITY
 
 #Data Gathering from IRENA API
 url = 'https://pxweb.irena.org:443/api/v1/en/IRENASTAT/Power Capacity and Generation/RESHARE_2023_cycle2.px'
