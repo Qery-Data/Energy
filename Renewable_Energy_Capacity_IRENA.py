@@ -116,3 +116,49 @@ pivot_wind_subtech_df.to_csv("data_IRENA_Renewable_Capacity/IRENA_Wind_Sub_Techn
 # Total Wind Sub-Technologies Net Capacity Additions World Per Technology
 net_additions_wind_subtech_df = pivot_wind_subtech_df.diff(axis=1).drop(columns='2000').sort_values(by=pivot_wind_subtech_df.columns[-1], ascending=False).round(2)
 net_additions_wind_subtech_df.to_csv("data_IRENA_Renewable_Capacity/IRENA_Wind_Sub_Technologies_Capacity_Per_Technology_Net_Additions.csv")
+
+
+#ADDITIONAL FILES FOR RENEWABLE ENERGY SHARES
+
+#Data Gathering from IRENA API
+url = 'https://pxweb.irena.org:443/api/v1/en/IRENASTAT/Power Capacity and Generation/RESHARE_2023_cycle2.px'
+query = {
+     "query": [
+    {
+      "code": "Indicator",
+      "selection": {
+        "filter": "item",
+        "values": [
+          "0"
+        ]
+      }
+    }
+  ],
+     "response": {
+         "format": "json-stat2"
+     }
+ }
+
+result = requests.post(url, json = query)
+dataset = pyjstat.Dataset.read(result.text)
+type(dataset)
+df = dataset.write('dataframe')
+
+# Renewable Energy Share of Electric Capacity World
+filtered_world_df = df[(df['Region/country/area'] == 'World')]
+pivot_world_df = filtered_world_df.pivot(index='Indicator', columns='Year', values='value').round(2)
+pivot_world_df.to_csv("data_IRENA_Renewable_Capacity/IRENA_Renewable_Share_Electric_Capacity_World.csv")
+
+# Renewable Energy Share of Electric Capacity Regions
+regions = ['Africa', 'Asia', 'Central America and the Caribbean', 'Eurasia', 'Europe', 'Middle East', 'Oceania', 'South America', 'North America']
+filtered_regions_df = df[(df['Region/country/area'].isin(regions))]
+pivot_regions_df = filtered_regions_df.pivot(index='Region/country/area', columns='Year', values='value').round(2)
+pivot_regions_df = pivot_regions_df.sort_values(by=pivot_regions_df.columns[-1], ascending=False)
+pivot_regions_df.to_csv("data_IRENA_Renewable_Capacity/IRENA_Renewable_Share_Electric_Capacity_Regions.csv")
+
+# Total Renewable Energy Capacity Countries
+excluded_entities = regions + ['World', 'European Union']
+filtered_countries_df = df[~df['Region/country/area'].isin(excluded_entities)]
+pivot_countries_df = filtered_countries_df.pivot(index='Region/country/area', columns='Year', values='value').round(2)
+pivot_countries_df = pivot_countries_df.sort_values(by=pivot_countries_df.columns[-1], ascending=False)
+pivot_countries_df.to_csv("data_IRENA_Renewable_Capacity/IRENA_Renewable_Share_Electric_Capacity_Countries.csv")
