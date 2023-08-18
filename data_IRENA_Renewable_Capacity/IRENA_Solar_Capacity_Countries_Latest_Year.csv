@@ -1,6 +1,6 @@
 Region/country/area,2022
 China,393031.8
-United States of America,113015.05
+USA,113015.05
 Japan,83055.0
 Germany,66664.0
 India,63192.75
@@ -36,7 +36,7 @@ Portugal,2535.99
 Bulgaria,1948.36
 Malaysia,1933.23
 Jordan,1914.38
-Russian Federation,1815.9
+Russia,1815.9
 Egypt,1724.0
 Philippines,1622.87
 Romania,1413.92
@@ -56,7 +56,7 @@ Lithuania,568.0
 Bangladesh,562.83
 El Salvador,553.37
 Panama,550.7
-Iran (Islamic Republic of),539.38
+Iran,539.38
 Slovakia,537.0
 Estonia,534.77
 Honduras,528.81
@@ -88,7 +88,7 @@ Sudan,189.86
 "China, Hong Kong SAR",184.8
 Croatia,182.3
 Namibia,176.47
-Bolivia (Plurinational State of),170.63
+Bolivia,170.63
 Malawi,140.19
 Serbia,137.0
 New Caledonia,135.77
@@ -116,7 +116,7 @@ Nigeria,72.82
 Barbados,68.88
 Mali,63.55
 Niger,62.04
-Republic of Moldova,60.3
+Moldova,60.3
 Syrian Arab Republic,60.0
 Togo,57.24
 Latvia,56.16
@@ -128,7 +128,7 @@ French Polynesia,45.68
 Iraq,41.58
 Zimbabwe,41.25
 Maldives,35.8
-Lao People's Democratic Republic,34.05
+Lao PDR,34.05
 Madagascar,33.01
 Afghanistan,32.68
 Mayotte,30.03
@@ -139,7 +139,7 @@ Rwanda,25.18
 Georgia,23.37
 Montenegro,22.2
 Ethiopia,21.18
-Democratic Republic of the Congo,19.84
+DR Congo,19.84
 Kosovo*,19.75
 Seychelles,18.4
 Nicaragua,16.29
@@ -171,7 +171,7 @@ Belize,6.55
 Libya,6.33
 Botswana,6.27
 Cook Islands,5.57
-Venezuela (Bolivarian Republic of),5.32
+Venezuela,5.32
 Brunei Darussalam,4.9
 American Samoa,4.81
 Vanuatu,4.75
@@ -195,9 +195,9 @@ Liberia,2.58
 Tuvalu,2.31
 Marshall Islands,1.77
 Anguilla,1.54
+British Virgin Islands,1.17
 Paraguay,1.17
 Guinea-Bissau,1.17
-British Virgin Islands,1.17
 Tokelau,1.04
 Saint Martin,1.0
 Montserrat,1.0
