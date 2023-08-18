@@ -1,6 +1,6 @@
 Region/country/area,2022
 China,36990.76
-United States of America,7842.33
+USA,7842.33
 United Kingdom,3013.0
 Brazil,3001.86
 Germany,2461.0
@@ -21,7 +21,7 @@ Kazakhstan,423.8
 Austria,328.0
 Belgium,303.0
 Ireland,280.0
-Russian Federation,263.0
+Russia,263.0
 Greece,230.0
 Republic of Korea,184.46
 Mexico,158.13
@@ -36,15 +36,15 @@ Denmark,67.0
 Panama,66.0
 Latvia,59.0
 Croatia,56.0
-Republic of Moldova,48.1
+Moldova,48.1
 Dominican Republic,46.8
-Iran (Islamic Republic of),31.8
+Iran,31.8
 Luxembourg,29.0
 Portugal,28.0
 Argentina,18.0
 Belarus,8.3
 Georgia,8.0
-Bolivia (Plurinational State of),3.6
+Bolivia,3.6
 Egypt,2.5
 Barbados,1.1
 Bahrain,0.06

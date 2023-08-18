@@ -1,6 +1,6 @@
 Region/country/area,2022
 China,86059.0
-United States of America,17624.14
+USA,17624.14
 India,13462.07
 Brazil,9881.81
 Germany,7291.0
@@ -42,7 +42,7 @@ Slovenia,171.0
 Pakistan,166.0
 Finland,165.6
 Dominican Republic,161.2
-Russian Federation,154.88
+Russia,154.88
 Puerto Rico,151.82
 Uzbekistan,149.0
 Malaysia,146.1
@@ -60,7 +60,7 @@ Indonesia,87.84
 Panama,85.82
 Serbia,85.16
 Singapore,84.6
-Iran (Islamic Republic of),83.52
+Iran,83.52
 Cambodia,79.92
 New Zealand,65.6
 Guam,61.65
@@ -69,7 +69,7 @@ Bangladesh,57.11
 Sudan,54.0
 Bosnia and Herzegovina,50.95
 Latvia,49.0
-Republic of Moldova,45.82
+Moldova,45.82
 Croatia,44.0
 Mozambique,43.96
 Luxembourg,42.0
@@ -77,14 +77,14 @@ Niger,35.0
 Argentina,34.69
 Burkina Faso,30.0
 Syrian Arab Republic,27.0
-Namibia,25.0
 Benin,25.0
+Namibia,25.0
 Somalia,23.5
 Senegal,23.0
 Myanmar,22.9
 Nepal,20.18
-Hungary,20.0
 Romania,20.0
+Hungary,20.0
 Montenegro,19.63
 Malta,15.34
 State of Palestine,14.0
@@ -97,12 +97,12 @@ El Salvador,10.17
 South Africa,10.0
 New Caledonia,9.76
 Tonga,6.9
-Albania,5.6
 Kosovo*,5.6
-Georgia,5.0
-Maldives,5.0
+Albania,5.6
 Seychelles,5.0
 Sierra Leone,5.0
+Georgia,5.0
+Maldives,5.0
 Barbados,4.95
 Iraq,4.5
 Comoros,4.0
@@ -122,15 +122,15 @@ Turks and Caicos Islands,0.72
 Saudi Arabia,0.5
 Fiji,0.45
 Bahrain,0.35
-Bolivia (Plurinational State of),0.27
+Bolivia,0.27
 Nauru,0.26
 Papua New Guinea,0.24
 Gambia,0.12
-Honduras,0.1
 Timor-Leste,0.1
+Honduras,0.1
 Marshall Islands,0.07
 Saint Vincent and the Grenadines,0.06
 Jamaica,0.05
 Vanuatu,0.04
-Brunei Darussalam,0.03
 Zambia,0.03
+Brunei Darussalam,0.03

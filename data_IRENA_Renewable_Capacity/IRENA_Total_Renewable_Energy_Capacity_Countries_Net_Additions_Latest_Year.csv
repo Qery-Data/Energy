@@ -1,6 +1,6 @@
 Region/country/area,2022
 China,140564.76
-United States of America,25528.9
+USA,25528.9
 India,15842.0
 Brazil,14125.95
 Germany,9854.0
@@ -33,15 +33,15 @@ Ethiopia,830.0
 Israel,820.0
 Qatar,800.0
 Switzerland,700.92
-Lao People's Democratic Republic,690.0
+Lao PDR,690.0
 Bulgaria,673.64
 United Arab Emirates,587.64
 Kazakhstan,532.42
 Oman,500.0
-Iran (Islamic Republic of),468.62
+Iran,468.62
 Zambia,459.03
 Lithuania,458.5
-Russian Federation,417.88
+Russia,417.88
 Jordan,386.29
 Czechia,381.89
 Philippines,355.99
@@ -68,7 +68,7 @@ Georgia,126.0
 Cyprus,116.47
 Afghanistan,104.55
 Croatia,103.0
-Republic of Moldova,102.25
+Moldova,102.25
 Tunisia,102.19
 Serbia,97.16
 "China, Hong Kong SAR",95.56
@@ -90,8 +90,8 @@ Niger,35.0
 Burkina Faso,30.0
 Syrian Arab Republic,27.0
 Cuba,25.14
-Benin,25.0
 Namibia,25.0
+Benin,25.0
 Uganda,24.84
 Somalia,23.5
 Azerbaijan,23.2
@@ -100,7 +100,7 @@ Myanmar,22.9
 Romania,21.0
 Hungary,20.0
 Montenegro,19.62
-Bolivia (Plurinational State of),16.87
+Bolivia,16.87
 Malta,15.34
 Burundi,15.0
 State of Palestine,14.0
@@ -136,7 +136,7 @@ Bahrain,0.41
 Nauru,0.26
 Gambia,0.12
 Timor-Leste,0.11
-Democratic Republic of the Congo,0.1
+DR Congo,0.1
 Marshall Islands,0.07
 Saint Vincent and the Grenadines,0.06
 Jamaica,0.05

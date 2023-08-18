@@ -1,6 +1,6 @@
 Region/country/area,2022
 China,1160798.94
-United States of America,351675.77
+USA,351675.77
 Brazil,175261.88
 India,163012.61
 Germany,148420.5
@@ -9,7 +9,7 @@ Canada,106873.92
 Spain,67909.26
 France,65381.48
 Italy,59891.02
-Russian Federation,56880.22
+Russia,56880.22
 Türkiye,55943.42
 United Kingdom,53024.76
 Australia,48819.36
@@ -23,7 +23,7 @@ Austria,23424.35
 Poland,21242.09
 Switzerland,19725.92
 Chile,18800.58
-Venezuela (Bolivarian Republic of),16972.53
+Venezuela,16972.53
 Portugal,16329.09
 Argentina,15091.65
 Ukraine,14921.0
@@ -33,13 +33,13 @@ Chinese Taipei,13812.68
 Colombia,13469.23
 Belgium,13089.4
 Indonesia,12603.22
-Iran (Islamic Republic of),12398.8
+Iran,12398.8
 Denmark,12365.96
 Thailand,12197.15
 Finland,12094.6
 Romania,11141.04
 South Africa,10444.74
-Lao People's Democratic Republic,9624.33
+Lao PDR,9624.33
 Malaysia,9044.31
 Paraguay,8852.6
 New Zealand,7799.6
@@ -70,7 +70,7 @@ Iceland,2879.49
 Sri Lanka,2857.42
 Panama,2799.5
 Kyrgyzstan,2780.4
-Democratic Republic of the Congo,2741.5
+DR Congo,2741.5
 Guatemala,2704.89
 Kenya,2649.42
 Jordan,2555.18
@@ -94,7 +94,7 @@ Lithuania,1617.0
 Iraq,1598.92
 Armenia,1583.32
 Syrian Arab Republic,1557.3
-Bolivia (Plurinational State of),1364.09
+Bolivia,1364.09
 Azerbaijan,1339.0
 Cuba,1307.55
 Uganda,1222.42
@@ -132,7 +132,7 @@ Mauritius,272.14
 Kosovo*,268.63
 Yemen,256.79
 Jamaica,256.69
-Republic of Moldova,254.98
+Moldova,254.98
 New Caledonia,254.86
 "China, Hong Kong SAR",244.46
 Congo,226.66
