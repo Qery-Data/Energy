@@ -38,7 +38,22 @@ result = requests.post(url, json = query)
 dataset = pyjstat.Dataset.read(result.text)
 type(dataset)
 df = dataset.write('dataframe')
+# Shorthand dictionary
+shorthand_dict = {
+    'Lao People\'s Democratic Republic': 'Lao PDR',
+    'Iran (Islamic Republic of)': 'Iran',
+    'Bolivia (Plurinational State of)': 'Bolivia',
+    'Democratic Republic of the Congo': 'DR Congo',
+    'United States of America': 'USA',
+    'Russian Federation': 'Russia',
+    'Republic of Moldova': 'Moldova',
+    'Venezuela (Bolivarian Republic of)': 'Venezuela'
+}
 
+# Replacing long names with shorthands
+df['Region/country/area'] = df['Region/country/area'].replace(shorthand_dict)
+
+# Main function
 def generate_files_for_technology(technology, df, regions=['Africa', 'Asia', 'Central America and the Caribbean', 'Eurasia', 'Europe', 'Middle East', 'Oceania', 'South America', 'North America']):
     # Filename prefix
     filename_prefix = "data_IRENA_Renewable_Capacity/IRENA_" + technology.title().replace(" ", "_") + "_Capacity"
@@ -143,6 +158,7 @@ result = requests.post(url, json = query)
 dataset = pyjstat.Dataset.read(result.text)
 type(dataset)
 df = dataset.write('dataframe')
+df['Region/country/area'] = df['Region/country/area'].replace(shorthand_dict)
 
 # Renewable Energy Share of Electric Capacity World
 filtered_world_df = df[(df['Region/country/area'] == 'World')]
