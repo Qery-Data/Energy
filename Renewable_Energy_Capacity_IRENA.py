@@ -44,7 +44,7 @@ shorthand_dict = {
     'Iran (Islamic Republic of)': 'Iran',
     'Bolivia (Plurinational State of)': 'Bolivia',
     'Democratic Republic of the Congo': 'DR Congo',
-    'United Kingdom': 'UK'
+    'United Kingdom': 'UK',
     'United States of America': 'USA',
     'Russian Federation': 'Russia',
     'Republic of Moldova': 'Moldova',
