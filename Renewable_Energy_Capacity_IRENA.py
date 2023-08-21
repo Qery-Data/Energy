@@ -75,7 +75,7 @@ def generate_files_for_technology(technology, df, regions=['Africa', 'Asia', 'Ce
     pivot_regions_df.to_csv(filename_prefix + "_Regions.csv")
 
     # Regions Net Additions
-    net_additions_regions_df = pivot_regions_df.diff(axis=1).drop(columns='2000').sort_values(by=pivot_regions_df.columns[-1], ascending=False).round(2)
+    net_additions_regions_df = pivot_regions_df.diff(axis=1).drop(columns='2000').sort_values(by=[pivot_regions_df.columns[-1], 'Region/country/area'], ascending=[False, True]).round(2)
     net_additions_regions_df.to_csv(filename_prefix + "_Regions_Net_Additions.csv")
 
     # Regions Share
