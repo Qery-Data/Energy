@@ -71,7 +71,7 @@ def generate_files_for_technology(technology, df, regions=['Africa', 'Asia', 'Ce
     # Regions Data
     filtered_regions_df = df[(df['Region/country/area'].isin(regions)) & (df['Technology'] == technology)]
     pivot_regions_df = filtered_regions_df.pivot(index='Region/country/area', columns='Year', values='value').round(2)
-    pivot_regions_df = pivot_regions_df.sort_values(by=pivot_regions_df.columns[-1], ascending=False)
+    pivot_regions_df = pivot_regions_df.sort_values(by=[pivot_regions_df.columns[-1], 'Region/country/area'], ascending=[False, True])
     pivot_regions_df.to_csv(filename_prefix + "_Regions.csv")
 
     # Regions Net Additions
@@ -91,7 +91,7 @@ def generate_files_for_technology(technology, df, regions=['Africa', 'Asia', 'Ce
 
     # Countries Latest Year
     latest_year = pivot_countries_df.columns[-1]
-    latest_year_df = pivot_countries_df[[latest_year]].sort_values(by=latest_year, ascending=False)
+    latest_year_df = pivot_countries_df[[latest_year]].sort_values(by=[latest_year, 'Region/country/area'], ascending=[False, True])
     latest_year_df = latest_year_df[latest_year_df[latest_year] != 0]
     latest_year_df.to_csv(filename_prefix + "_Countries_Latest_Year.csv")
 
@@ -101,7 +101,7 @@ def generate_files_for_technology(technology, df, regions=['Africa', 'Asia', 'Ce
     net_additions_countries_df.to_csv(filename_prefix + "_Countries_Net_Additions.csv")
 
     # Countries Net Additions Latest Year
-    latest_year_net_additions = net_additions_countries_df[[latest_year]].sort_values(by=latest_year, ascending=False)
+    latest_year_net_additions = net_additions_countries_df[[latest_year]].sort_values(by=[latest_year, 'Region/country/area'], ascending=[False, True])
     latest_year_net_additions = latest_year_net_additions[latest_year_net_additions[latest_year] != 0]
     latest_year_net_additions.to_csv(filename_prefix + "_Countries_Net_Additions_Latest_Year.csv")
 
