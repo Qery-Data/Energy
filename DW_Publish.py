@@ -34,10 +34,11 @@ def publish_charts(chart_ids, access_token):
 # Main execution
 def main():
     access_token = os.getenv('DW_TOKEN')
-    main_folder_id = 162886
-    all_chart_ids = fetch_all_chart_ids(main_folder_id, access_token)
     
-    publish_charts(all_chart_ids, access_token)
-
-if __name__ == "__main__":
-    main()
+    # List of folder IDs
+    folder_ids = [162886,126751]
+    
+    # Iterating over folder IDs
+    for folder_id in folder_ids:
+        all_chart_ids = fetch_all_chart_ids(folder_id, access_token)
+        publish_charts(all_chart_ids, access_token)
