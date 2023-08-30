@@ -42,3 +42,5 @@ def main():
     for folder_id in folder_ids:
         all_chart_ids = fetch_all_chart_ids(folder_id, access_token)
         publish_charts(all_chart_ids, access_token)
+if __name__ == "__main__":
+    main()
