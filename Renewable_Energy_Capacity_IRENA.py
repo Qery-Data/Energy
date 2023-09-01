@@ -3,7 +3,7 @@ import requests
 import os
 from datetime import datetime
 import pandas as pd
-os.makedirs('data_IRENA', exist_ok=True)
+os.makedirs('data_IRENA_Renewable_Capacity', exist_ok=True)
 
 #Data Gathering from IRENA API Renewable Energy Capacity
 url = 'https://pxweb.irena.org:443/api/v1/en/IRENASTAT/Power Capacity and Generation/RECAP_2023_cycle2.px'
