@@ -103,7 +103,7 @@ def generate_files_for_technology(technology, df, regions=['Africa', 'Asia', 'Ce
 
     # Countries Net Additions Latest Year
     latest_year_net_additions = net_additions_countries_df[[latest_year]].sort_values(by=[latest_year, 'Region/country/area'], ascending=[False, True])
-    latest_year_net_additions = latest_year_net_additions[latest_year_net_additions[latest_year] != 0]
+    latest_year_net_additions = net_additions_countries_df.loc[latest_year_df.index][[latest_year]].sort_values(by=[latest_year, 'Region/country/area'], ascending=[False, True])
     latest_year_net_additions.to_csv(filename_prefix + "_Countries_Net_Additions_Latest_Year.csv")
 
 technologies = ["Bioenergy", "Geothermal", "Wind", "Solar", "Renewable hydropower", "Offshore wind energy", "Onshore wind energy", "Marine", "Total renewable energy"]
