@@ -71,6 +71,7 @@ def generate_files_for_technology(technology, df, regions=['Africa', 'Asia', 'Ce
     # Regions Data
     filtered_regions_df = df[(df['Region/country/area'].isin(regions)) & (df['Technology'] == technology)]
     pivot_regions_df = filtered_regions_df.pivot(index='Region/country/area', columns='Year', values='value').round(2)
+    pivot_regions_df = pivot_regions_df[pivot_regions_df.sum(axis=1) != 0]
     pivot_regions_df = pivot_regions_df.sort_values(by=[pivot_regions_df.columns[-1], 'Region/country/area'], ascending=[False, True])
     pivot_regions_df.to_csv(filename_prefix + "_Regions.csv")
 
