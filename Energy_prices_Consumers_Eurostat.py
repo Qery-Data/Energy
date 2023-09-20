@@ -42,7 +42,7 @@ df = dataset.write('dataframe')
 df.replace(rename_dict, inplace=True)
 df_new = df.pivot(index='Geopolitical entity (reporting)', columns='Time', values='value')
 df_new["Pct_change"] = ((df_new.iloc[:, -1] - df_new.iloc[:, 1]) / df_new.iloc[:, 1]) * 100
-df_new.dropna(how='all', inplace=True)
+df_new.dropna(inplace=True)
 df_new.to_csv('data_Eurostat_Energy_Prices/Electricity_Prices_Household_Consumers_Change_Europe.csv', index=True)
 
 #Electricity price household by consumer group Europe
@@ -95,7 +95,7 @@ df = dataset.write('dataframe')
 df.replace(rename_dict, inplace=True)
 df_new = df.pivot(index='Geopolitical entity (reporting)', columns='Time', values='value')
 df_new["Pct_change"] = ((df_new.iloc[:, -1] - df_new.iloc[:, 1]) / df_new.iloc[:, 1]) * 100
-df_new.dropna(how='all', inplace=True)
+df_new.dropna(inplace=True)
 df_new.to_csv('data_Eurostat_Energy_Prices/Electricity_Prices_Non_Household_Consumers_Change_Europe.csv', index=True)
 
 #Electricity price non-household by consumer group Europe
@@ -149,7 +149,7 @@ df = dataset.write('dataframe')
 df.replace(rename_dict, inplace=True)
 df_new = df.pivot(index='Geopolitical entity (reporting)', columns='Time', values='value')
 df_new["Pct_change"] = ((df_new.iloc[:, -1] - df_new.iloc[:, 1]) / df_new.iloc[:, 1]) * 100
-df_new.dropna(how='all', inplace=True)
+df_new.dropna(inplace=True)
 df_new.to_csv('data_Eurostat_Energy_Prices/Natural_Gas_Prices_Household_Consumers_Change_Europe.csv', index=True)
 
 #Natural gas price household by consumer group 
