@@ -25,6 +25,7 @@ df = dataset.write('dataframe')
 df.replace(rename_dict, inplace=True)
 df_new = df.pivot(index='Taxes', columns='Time', values='value')
 df_new.columns = [col.replace('-S1', ' June') if '-S1' in col else col.replace('-S2', ' December') for col in df_new.columns]
+df_new.dropna(how='all', inplace=True)
 df_new.to_csv('data_Eurostat_Energy_Prices/Electricity_Prices_Household_Consumers_Time_EU27.csv', index=True)
 
 #Electricity prices households latest Europe
@@ -32,6 +33,7 @@ dataset = pyjstat.Dataset.read('https://ec.europa.eu/eurostat/api/dissemination/
 df = dataset.write('dataframe')
 df.replace(rename_dict, inplace=True)
 df_new = df.pivot(index='Geopolitical entity (reporting)', columns='Time', values='value')
+df_new.dropna(how='all', inplace=True)
 df_new.to_csv('data_Eurostat_Energy_Prices/Electricity_Prices_Household_Consumers_Latest_Europe.csv', index=True)
 
 #Electricity price household consumers comparison by time Europe
@@ -39,8 +41,8 @@ dataset = pyjstat.Dataset.read('https://ec.europa.eu/eurostat/api/dissemination/
 df = dataset.write('dataframe')
 df.replace(rename_dict, inplace=True)
 df_new = df.pivot(index='Geopolitical entity (reporting)', columns='Time', values='value')
-df_new.drop(index={'Euro area','Ukraine','United Kingdom', 'Turkey'}, inplace=True)
 df_new["Pct_change"] = ((df_new.iloc[:, -1] - df_new.iloc[:, 1]) / df_new.iloc[:, 1]) * 100
+df_new.dropna(how='all', inplace=True)
 df_new.to_csv('data_Eurostat_Energy_Prices/Electricity_Prices_Household_Consumers_Change_Europe.csv', index=True)
 
 #Electricity price household by consumer group Europe
@@ -48,7 +50,7 @@ dataset = pyjstat.Dataset.read('https://ec.europa.eu/eurostat/api/dissemination/
 df = dataset.write('dataframe')
 df.replace(rename_dict, inplace=True)
 df_new = df.pivot(index='Geopolitical entity (reporting)', columns='Energy consumption', values='value')
-df_new.drop(index={'Ukraine','United Kingdom'}, inplace=True)
+df_new.dropna(how='all', inplace=True)
 df_new.to_csv('data_Eurostat_Energy_Prices/Electricity_Prices_Household_Consumers_Groups_Europe.csv', index=True)
 
 #Electricity price household consumers composition Europe
@@ -56,7 +58,7 @@ dataset = pyjstat.Dataset.read('https://ec.europa.eu/eurostat/api/dissemination/
 df = dataset.write('dataframe')
 df.replace(rename_dict, inplace=True)
 df_new = df.pivot(index='Geopolitical entity (reporting)', columns='Taxes', values='value')
-df_new.drop(index={'Ukraine','United Kingdom'}, inplace=True)
+df_new.dropna(how='all', inplace=True)
 df_new.to_csv('data_Eurostat_Energy_Prices/Electricity_Prices_Household_Consumers_Composition_Europe.csv', index=True)
 
 #Electricity price household consumers PPS Europe
@@ -65,6 +67,7 @@ df = dataset.write('dataframe')
 df.replace(rename_dict, inplace=True)
 df_new = df.pivot(index='Geopolitical entity (reporting)', columns='Currency', values='value')
 df_new = df_new.rename(columns={"Euro": "EUR", "Purchasing Power Standard": "PPS"})
+df_new.dropna(how='all', inplace=True)
 df_new.to_csv('data_Eurostat_Energy_Prices/Electricity_Prices_Household_Consumers_PPS_Europe.csv', index=True)
 
 #Electricity prices non-household consumers
@@ -75,6 +78,7 @@ df = dataset.write('dataframe')
 df.replace(rename_dict, inplace=True)
 df_new = df.pivot(index='Taxes', columns='Time', values='value')
 df_new.columns = df_new.columns.str.replace("S", "H")
+df_new.dropna(how='all', inplace=True)
 df_new.to_csv('data_Eurostat_Energy_Prices/Electricity_Prices_Non_Household_Consumers_Time_EU27.csv', index=True)
 
 #Electricity prices non-households latest Europe (ex. VAT and other recoverable taxes and levies)
@@ -82,6 +86,7 @@ dataset = pyjstat.Dataset.read('https://ec.europa.eu/eurostat/api/dissemination/
 df = dataset.write('dataframe')
 df.replace(rename_dict, inplace=True)
 df_new = df.pivot(index='Geopolitical entity (reporting)', columns='Time', values='value')
+df_new.dropna(how='all', inplace=True)
 df_new.to_csv('data_Eurostat_Energy_Prices/Electricity_Prices_Non_Household_Consumers_Latest_Europe.csv', index=True)
 
 #Electricity price non-household consumers comparison by time Europe
@@ -90,6 +95,7 @@ df = dataset.write('dataframe')
 df.replace(rename_dict, inplace=True)
 df_new = df.pivot(index='Geopolitical entity (reporting)', columns='Time', values='value')
 df_new["Pct_change"] = ((df_new.iloc[:, -1] - df_new.iloc[:, 1]) / df_new.iloc[:, 1]) * 100
+df_new.dropna(how='all', inplace=True)
 df_new.to_csv('data_Eurostat_Energy_Prices/Electricity_Prices_Non_Household_Consumers_Change_Europe.csv', index=True)
 
 #Electricity price non-household by consumer group Europe
@@ -97,6 +103,7 @@ dataset = pyjstat.Dataset.read('https://ec.europa.eu/eurostat/api/dissemination/
 df = dataset.write('dataframe')
 df.replace(rename_dict, inplace=True)
 df_new = df.pivot(index='Geopolitical entity (reporting)', columns='Energy consumption', values='value')
+df_new.dropna(how='all', inplace=True)
 df_new.to_csv('data_Eurostat_Energy_Prices/Electricity_Prices_Non_Household_Consumers_Groups_Europe.csv', index=True)
 
 #Electricity price household consumers composition Europe
@@ -105,6 +112,7 @@ df = dataset.write('dataframe')
 df.replace(rename_dict, inplace=True)
 df_new = df.pivot(index='Geopolitical entity (reporting)', columns='Taxes', values='value')
 df_new["Share of taxes and levies (%)"] = ((df_new["Excluding VAT and other recoverable taxes and levies"] - df_new["Excluding taxes and levies"]) /(df_new["Excluding VAT and other recoverable taxes and levies"]) * 100)
+df_new.dropna(how='all', inplace=True)
 df_new.to_csv('data_Eurostat_Energy_Prices/Electricity_Prices_Non_Household_Consumers_Composition_Europe.csv', index=True)
 
 #Electricity price household consumers PPS Europe
@@ -113,6 +121,7 @@ df = dataset.write('dataframe')
 df.replace(rename_dict, inplace=True)
 df_new = df.pivot(index='Geopolitical entity (reporting)', columns='Currency', values='value')
 df_new = df_new.rename(columns={"Euro": "EUR", "Purchasing Power Standard": "PPS"})
+df_new.dropna(how='all', inplace=True)
 df_new.to_csv('data_Eurostat_Energy_Prices/Electricity_Prices_Non_Household_Consumers_PPS_Europe.csv', index=True)  
 
 #Natural gas prices household consumers 
@@ -123,6 +132,7 @@ df = dataset.write('dataframe')
 df.replace(rename_dict, inplace=True)
 df_new = df.pivot(index='Taxes', columns='Time', values='value')
 df_new.columns = [col.replace('-S1', ' June') if '-S1' in col else col.replace('-S2', ' December') for col in df_new.columns]
+df_new.dropna(how='all', inplace=True)
 df_new.to_csv('data_Eurostat_Energy_Prices/Natural_Gas_Prices_Household_Consumers_Time_EU27.csv', index=True)
 
 #Natural gas prices households consumers latest 
@@ -130,6 +140,7 @@ dataset = pyjstat.Dataset.read('https://ec.europa.eu/eurostat/api/dissemination/
 df = dataset.write('dataframe')
 df.replace(rename_dict, inplace=True)
 df_new = df.pivot(index='Geopolitical entity (reporting)', columns='Time', values='value')
+df_new.dropna(how='all', inplace=True)
 df_new.to_csv('data_Eurostat_Energy_Prices/Natural_Gas_Prices_Household_Consumers_Latest_Europe.csv', index=True)
 
 #Natural gas price households consumers comparison by time
@@ -137,8 +148,8 @@ dataset = pyjstat.Dataset.read('https://ec.europa.eu/eurostat/api/dissemination/
 df = dataset.write('dataframe')
 df.replace(rename_dict, inplace=True)
 df_new = df.pivot(index='Geopolitical entity (reporting)', columns='Time', values='value')
-df_new.drop(index={'Euro area','Ukraine','United Kingdom', 'Turkey'}, inplace=True)
 df_new["Pct_change"] = ((df_new.iloc[:, -1] - df_new.iloc[:, 1]) / df_new.iloc[:, 1]) * 100
+df_new.dropna(how='all', inplace=True)
 df_new.to_csv('data_Eurostat_Energy_Prices/Natural_Gas_Prices_Household_Consumers_Change_Europe.csv', index=True)
 
 #Natural gas price household by consumer group 
@@ -146,7 +157,7 @@ dataset = pyjstat.Dataset.read('https://ec.europa.eu/eurostat/api/dissemination/
 df = dataset.write('dataframe')
 df.replace(rename_dict, inplace=True)
 df_new = df.pivot(index='Geopolitical entity (reporting)', columns='Energy consumption', values='value')
-df_new.drop(index={'Ukraine','United Kingdom'}, inplace=True)
+df_new.dropna(how='all', inplace=True)
 df_new.to_csv('data_Eurostat_Energy_Prices/Natural_Gas_Prices_Household_Consumers_Groups_Europe.csv', index=True)
 
 #Natural gas price consumers composition Europe
@@ -154,7 +165,7 @@ dataset = pyjstat.Dataset.read('https://ec.europa.eu/eurostat/api/dissemination/
 df = dataset.write('dataframe')
 df.replace(rename_dict, inplace=True)
 df_new = df.pivot(index='Geopolitical entity (reporting)', columns='Taxes', values='value')
-df_new.drop(index={'Ukraine','United Kingdom'}, inplace=True)
+df_new.dropna(how='all', inplace=True)
 df_new.to_csv('data_Eurostat_Energy_Prices/Natural_Gas_Prices_Household_Consumers_Composition_Europe.csv', index=True)
 
 #Natural gas price consumers PPS Europe
@@ -163,4 +174,5 @@ df = dataset.write('dataframe')
 df.replace(rename_dict, inplace=True)
 df_new = df.pivot(index='Geopolitical entity (reporting)', columns='Currency', values='value')
 df_new = df_new.rename(columns={"Euro": "EUR", "Purchasing Power Standard": "PPS"})
+df_new.dropna(how='all', inplace=True)
 df_new.to_csv('data_Eurostat_Energy_Prices/Natural_Gas_Prices_Household_Consumers_PPS_Europe.csv', index=True)
