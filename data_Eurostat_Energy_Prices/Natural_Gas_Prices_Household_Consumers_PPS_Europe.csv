@@ -1,29 +1,29 @@
-Geopolitical entity (reporting),PPS,EUR
-Austria,0.1083,0.1235
-Belgium,0.1226,0.1363
-Bosnia and Herz.,0.1258,0.0655
-Bulgaria,0.2116,0.1173
-Croatia,0.0691,0.045
-Czech Rep.,0.2426,0.1904
-Denmark,0.156,0.2084
-EU27,0.1229,0.1137
-Estonia,0.1329,0.1089
-Euro area,0.1096,0.1138
-France,0.093,0.1008
-Germany,0.0848,0.0941
-Greece,0.1943,0.1599
-Hungary,0.0609,0.0349
-Ireland,0.1288,0.1544
-Italy,0.1341,0.131
-Latvia,0.1447,0.1111
-Lithuania,0.1256,0.0867
-Luxembourg,0.0688,0.0891
-Netherlands,0.1658,0.1925
-North Macedonia,0.3005,0.14
-Poland,0.0953,0.0553
-Portugal,0.1491,0.1277
-Romania,0.2409,0.1265
-Slovakia,0.062,0.0499
-Slovenia,0.1108,0.0942
-Spain,0.1667,0.1574
-Sweden,0.2254,0.2751
+Geopolitical entity (reporting),EUR,PPS
+Austria,0.1235,0.1083
+Belgium,0.1363,0.1226
+Bosnia and Herz.,0.0655,0.1258
+Bulgaria,0.1173,0.2116
+Croatia,0.045,0.0691
+Czech Rep.,0.1904,0.2426
+Denmark,0.2084,0.156
+EU27,0.1137,0.1229
+Estonia,0.1089,0.1329
+Euro area,0.1138,0.1096
+France,0.1008,0.093
+Germany,0.0941,0.0848
+Greece,0.1599,0.1943
+Hungary,0.0349,0.0609
+Ireland,0.1544,0.1288
+Italy,0.131,0.1341
+Latvia,0.1111,0.1447
+Lithuania,0.0867,0.1256
+Luxembourg,0.0891,0.0688
+Netherlands,0.1925,0.1658
+North Macedonia,0.14,0.3005
+Poland,0.0553,0.0953
+Portugal,0.1277,0.1491
+Romania,0.1265,0.2409
+Slovakia,0.0499,0.062
+Slovenia,0.0942,0.1108
+Spain,0.1574,0.1667
+Sweden,0.2751,0.2254
