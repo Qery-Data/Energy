@@ -80,7 +80,7 @@ dataset = pyjstat.Dataset.read('https://ec.europa.eu/eurostat/api/dissemination/
 df = dataset.write('dataframe')
 df.replace(rename_dict, inplace=True)
 df_new = df.pivot(index='Taxes', columns='Time', values='value')
-df_new.columns = df_new.columns.str.replace("S", "H")
+df_new.columns = [col.replace('-S1', ' June') if '-S1' in col else col.replace('-S2', ' December') for col in df_new.columns]
 df_new.dropna(how='all', inplace=True)
 df_new.to_csv('data_Eurostat_Energy_Prices/Electricity_Prices_Non_Household_Consumers_Time_EU27.csv', index=True)
 
