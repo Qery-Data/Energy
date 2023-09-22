@@ -28,6 +28,15 @@ df_new.columns = [col.replace('-S1', ' June') if '-S1' in col else col.replace('
 df_new.dropna(how='all', inplace=True)
 df_new.to_csv('data_Eurostat_Energy_Prices/Electricity_Prices_Household_Consumers_Time_EU27.csv', index=True)
 
+#Electricity prices over time household consumers all countries
+dataset = pyjstat.Dataset.read('https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_204?lang=en&nrg_cons=KWH2500-4999&tax=I_TAX&currency=EUR')
+df = dataset.write('dataframe')
+df.replace(rename_dict, inplace=True)
+df_new = df.pivot(index='Geopolitical entity (reporting)', columns='Time', values='value')
+df_new.columns = [col.replace('-S1', ' June') if '-S1' in col else col.replace('-S2', ' December') for col in df_new.columns]
+df_new.dropna(how='all', inplace=True)
+df_new.to_csv('data_Eurostat_Energy_Prices/Electricity_Prices_Household_Consumers_Time_All_Countries.csv', index=True)
+
 #Electricity prices households latest Europe
 dataset = pyjstat.Dataset.read('https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_204?lang=en&lastTimePeriod=1&nrg_cons=KWH2500-4999&tax=I_TAX&currency=EUR')
 df = dataset.write('dataframe')
@@ -83,6 +92,15 @@ df_new = df.pivot(index='Taxes', columns='Time', values='value')
 df_new.columns = [col.replace('-S1', ' June') if '-S1' in col else col.replace('-S2', ' December') for col in df_new.columns]
 df_new.dropna(how='all', inplace=True)
 df_new.to_csv('data_Eurostat_Energy_Prices/Electricity_Prices_Non_Household_Consumers_Time_EU27.csv', index=True)
+
+#Electricity prices over time non-household consumers all countries
+dataset = pyjstat.Dataset.read('https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_205?lang=en&nrg_cons=MWH500-1999&tax=X_VAT&currency=EUR')
+df = dataset.write('dataframe')
+df.replace(rename_dict, inplace=True)
+df_new = df.pivot(index='Geopolitical entity (reporting)', columns='Time', values='value')
+df_new.columns = [col.replace('-S1', ' June') if '-S1' in col else col.replace('-S2', ' December') for col in df_new.columns]
+df_new.dropna(how='all', inplace=True)
+df_new.to_csv('data_Eurostat_Energy_Prices/Electricity_Prices_Non_Household_Consumers_Time_All_Countries.csv', index=True)
 
 #Electricity prices non-households latest Europe (ex. VAT and other recoverable taxes and levies)
 dataset = pyjstat.Dataset.read('https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_205?lang=en&lastTimePeriod=1&nrg_cons=MWH500-1999&tax=X_VAT&currency=EUR')
@@ -140,6 +158,16 @@ df_new.columns = [col.replace('-S1', ' June') if '-S1' in col else col.replace('
 df_new.dropna(how='all', inplace=True)
 df_new.to_csv('data_Eurostat_Energy_Prices/Natural_Gas_Prices_Household_Consumers_Time_EU27.csv', index=True)
 
+#Natural gas prices over time household consumers all countries
+dataset = pyjstat.Dataset.read('https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_202?lang=en&nrg_cons=GJ20-199&unit=KWH&tax=I_TAX&currency=EUR')
+df = dataset.write('dataframe')
+df.replace(rename_dict, inplace=True)
+df_new = df.pivot(index='Geopolitical entity (reporting)', columns='Time', values='value')
+df_new.columns = [col.replace('-S1', ' June') if '-S1' in col else col.replace('-S2', ' December') for col in df_new.columns]
+df_new.replace(0, np.nan, inplace=True)
+df_new.dropna(how='all', inplace=True)
+df_new.to_csv('data_Eurostat_Energy_Prices/Natural_Gas_Prices_Household_Consumers_Time_All_Countries.csv', index=True)
+
 #Natural gas prices households consumers latest 
 dataset = pyjstat.Dataset.read('https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_202?lang=en&lastTimePeriod=1&nrg_cons=GJ20-199&unit=KWH&tax=I_TAX&currency=EUR')
 df = dataset.write('dataframe')
@@ -195,6 +223,16 @@ df_new = df.pivot(index='Taxes', columns='Time', values='value')
 df_new.columns = [col.replace('-S1', ' June') if '-S1' in col else col.replace('-S2', ' December') for col in df_new.columns]
 df_new.dropna(how='all', inplace=True)
 df_new.to_csv('data_Eurostat_Energy_Prices/Natural_Gas_Prices_Non_Household_Consumers_Time_EU27.csv', index=True)
+
+#Natural gas prices over time non-household consumers all countries
+dataset = pyjstat.Dataset.read('https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_203?lang=en&nrg_cons=GJ10000-99999&unit=KWH&tax=X_VAT&currency=EUR')
+df = dataset.write('dataframe')
+df.replace(rename_dict, inplace=True)
+df_new = df.pivot(index='Geopolitical entity (reporting)', columns='Time', values='value')
+df_new.columns = [col.replace('-S1', ' June') if '-S1' in col else col.replace('-S2', ' December') for col in df_new.columns]
+df_new.replace(0, np.nan, inplace=True)
+df_new.dropna(how='all', inplace=True)
+df_new.to_csv('data_Eurostat_Energy_Prices/Natural_Gas_Prices_Non_Household_Consumers_Time_All_Countries.csv', index=True)
 
 #Natural gas prices non-household consumers latest 
 dataset = pyjstat.Dataset.read('https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_203?lang=en&lastTimePeriod=1&nrg_cons=GJ10000-99999&unit=KWH&tax=X_VAT&currency=EUR')
