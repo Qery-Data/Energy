@@ -6,6 +6,8 @@ from datetime import datetime
 import locale
 import io
 import pandas as pd
+import numpy as np
+
 os.makedirs('data', exist_ok=True)
 rename_dict = {
     'Bosnia and Herzegovina': 'Bosnia and Herz.',
