@@ -178,5 +178,5 @@ pivot_regions_df.to_csv("data_IRENA_Renewable_Generation/IRENA_Renewable_Share_E
 excluded_entities = regions + ['World', 'European Union']
 filtered_countries_df = df[~df['Region/country/area'].isin(excluded_entities)]
 pivot_countries_df = filtered_countries_df.pivot(index='Region/country/area', columns='Year', values='value').round(2)
-pivot_countries_df = pivot_countries_df.sort_values(by=pivot_countries_df.columns[-1], ascending=False)
+pivot_countries_df = pivot_countries_df.sort_values(by=['Region/country/area', pivot_countries_df.columns[-1]], ascending=[True, False])
 pivot_countries_df.to_csv("data_IRENA_Renewable_Generation/IRENA_Renewable_Share_Electric_Generation_Countries.csv")
