@@ -1,5 +1,8 @@
 name: DW_Publish
 on: 
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
