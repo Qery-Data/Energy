@@ -36,7 +36,7 @@ def main():
     access_token = os.getenv('DW_TOKEN')
     
     # List of folder IDs
-    folder_ids = [162886]
+    folder_ids = [162886, 126751]
     
     # Iterating over folder IDs
     for folder_id in folder_ids:
