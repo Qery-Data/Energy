@@ -150,7 +150,7 @@ def generate_files_for_technology(technology, df_regions, regions=['Africa', 'As
     share_regions_df = (pivot_regions_df.divide(pivot_regions_df.sum(), axis=1) * 100).sort_values(by=pivot_regions_df.columns[-1], ascending=False).round(2)
     share_regions_df.to_csv(filename_prefix + "_Regions_Share.csv")
 
-technologies = ['Total renewable', 'Solar', 'Wind',
+technologies = ['Total renewable energy', 'Solar', 'Wind',
        'Renewable hydropower', 'Marine', 'Bioenergy',
        'Geothermal']
 for tech in technologies:
@@ -183,7 +183,7 @@ def generate_files_for_technology(technology, df_countries, regions=['Africa', '
     latest_year_net_additions = net_additions_countries_df.loc[latest_year_df.index][[latest_year]].sort_values(by=[latest_year, 'Country/area'], ascending=[False, True])
     latest_year_net_additions.to_csv(filename_prefix + "_Countries_Net_Additions_Latest_Year.csv")
 
-technologies = ['Total renewable','Solar','Wind','Onshore wind energy','Offshore wind energy','Renewable hydropower','Bioenergy','Geothermal']
+technologies = ['Total renewable energy','Solar','Wind','Onshore wind energy','Offshore wind energy','Renewable hydropower','Bioenergy','Geothermal']
 for tech in technologies:
     generate_files_for_technology(tech, df_countries)
 
