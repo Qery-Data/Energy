@@ -64,6 +64,8 @@ query = {
 result_regions = requests.post(url_regions, json=query)
 df_regions = pyjstat.Dataset.read(result_regions.text).write('dataframe')
 df_regions['Technology'] = df_regions['Technology'].replace(technology_name_mapping)
+df_regions.rename(columns={'Region': 'Region/country/area'}, inplace=True)
+
 
 #Countries
 url_countries = 'https://pxweb.irena.org:443/api/v1/en/IRENASTAT/Power Capacity and Generation/Country_ELECSTAT_2024_H1.px'
@@ -119,7 +121,10 @@ wind_aggregated['Technology'] = 'Wind'
 bioenergy_aggregated = df_countries[df_countries['Technology'].isin(['Solid biofuels', 'Liquid biofuels', 'Biogas'])].groupby(['Country/area', 'Year']).agg({'value': 'sum'}).reset_index()
 bioenergy_aggregated['Technology'] = 'Bioenergy'
 df_countries['Technology'] = df_countries['Technology'].replace(technology_name_mapping)
+df_countries['Country/area'] = df_countries['Country/area'].replace(shorthand_dict)
 df_countries = pd.concat([df_countries, solar_aggregated, wind_aggregated, bioenergy_aggregated], ignore_index=True)
+df_countries.rename(columns={'Country/area': 'Region/country/area'}, inplace=True)
+
 
 # Main function for regions
 def generate_files_for_technology(technology, df_regions, regions=['Africa', 'Asia', 'Central America and the Caribbean', 'Eurasia', 'Europe', 'Middle East', 'Oceania', 'South America', 'North America']):
@@ -127,7 +132,7 @@ def generate_files_for_technology(technology, df_regions, regions=['Africa', 'As
     filename_prefix = "data_IRENA_Renewable_Capacity/IRENA_" + technology.title().replace(" ", "_") + "_Capacity"
     
     # World Data
-    filtered_world_df = df_regions[(df_regions['Region'] == 'World') & (df_regions['Technology'] == technology)]
+    filtered_world_df = df_regions[(df_regions['Region/country/area'] == 'World') & (df_regions['Technology'] == technology)]
     pivot_world_df = filtered_world_df.pivot(index='Technology', columns='Year', values='value').round(2)
     pivot_world_df.to_csv(filename_prefix + "_World.csv")
 
@@ -136,14 +141,14 @@ def generate_files_for_technology(technology, df_regions, regions=['Africa', 'As
     net_additions_world_df.to_csv(filename_prefix + "_World_Net_Additions.csv")
 
     # Regions Data
-    filtered_regions_df = df_regions[(df_regions['Region'].isin(regions)) & (df_regions['Technology'] == technology)]
-    pivot_regions_df = filtered_regions_df.pivot(index='Region', columns='Year', values='value').round(2)
+    filtered_regions_df = df_regions[(df_regions['Region/country/area'].isin(regions)) & (df_regions['Technology'] == technology)]
+    pivot_regions_df = filtered_regions_df.pivot(index='Region/country/area', columns='Year', values='value').round(2)
     pivot_regions_df = pivot_regions_df[pivot_regions_df.sum(axis=1) != 0]
-    pivot_regions_df = pivot_regions_df.sort_values(by=[pivot_regions_df.columns[-1], 'Region'], ascending=[False, True])
+    pivot_regions_df = pivot_regions_df.sort_values(by=[pivot_regions_df.columns[-1], 'Region/country/area'], ascending=[False, True])
     pivot_regions_df.to_csv(filename_prefix + "_Regions.csv")
 
     # Regions Net Additions
-    net_additions_regions_df = pivot_regions_df.diff(axis=1).drop(columns='2000').sort_values(by=[pivot_regions_df.columns[-1], 'Region'], ascending=[False, True]).round(2)
+    net_additions_regions_df = pivot_regions_df.diff(axis=1).drop(columns='2000').sort_values(by=[pivot_regions_df.columns[-1], 'Region/country/area'], ascending=[False, True]).round(2)
     net_additions_regions_df.to_csv(filename_prefix + "_Regions_Net_Additions.csv")
 
     # Regions Share
@@ -163,13 +168,13 @@ def generate_files_for_technology(technology, df_countries, regions=['Africa', '
     
     # Countries Data
     filtered_countries_df = df_countries[df_countries['Technology'] == technology]
-    pivot_countries_df = filtered_countries_df.pivot(index='Country/area', columns='Year', values='value').round(2)
+    pivot_countries_df = filtered_countries_df.pivot(index='Region/country/area', columns='Year', values='value').round(2)
     pivot_countries_df.sort_index(inplace=True)
     pivot_countries_df.to_csv(filename_prefix + "_Countries.csv")
 
     # Countries Latest Year
     latest_year = pivot_countries_df.columns[-1]
-    latest_year_df = pivot_countries_df[[latest_year]].sort_values(by=[latest_year, 'Country/area'], ascending=[False, True])
+    latest_year_df = pivot_countries_df[[latest_year]].sort_values(by=[latest_year, 'Region/country/area'], ascending=[False, True])
     latest_year_df = latest_year_df[latest_year_df[latest_year] != 0]
     latest_year_df.to_csv(filename_prefix + "_Countries_Latest_Year.csv")
 
@@ -179,8 +184,8 @@ def generate_files_for_technology(technology, df_countries, regions=['Africa', '
     net_additions_countries_df.to_csv(filename_prefix + "_Countries_Net_Additions.csv")
 
     # Countries Net Additions Latest Year
-    latest_year_net_additions = net_additions_countries_df[[latest_year]].sort_values(by=[latest_year, 'Country/area'], ascending=[False, True])
-    latest_year_net_additions = net_additions_countries_df.loc[latest_year_df.index][[latest_year]].sort_values(by=[latest_year, 'Country/area'], ascending=[False, True])
+    latest_year_net_additions = net_additions_countries_df[[latest_year]].sort_values(by=[latest_year, 'Region/country/area'], ascending=[False, True])
+    latest_year_net_additions = net_additions_countries_df.loc[latest_year_df.index][[latest_year]].sort_values(by=[latest_year, 'Region/country/area'], ascending=[False, True])
     latest_year_net_additions.to_csv(filename_prefix + "_Countries_Net_Additions_Latest_Year.csv")
 
 technologies = ['Total renewable energy','Solar','Wind','Onshore wind energy','Offshore wind energy','Renewable hydropower','Bioenergy','Geothermal']
@@ -191,7 +196,7 @@ for tech in technologies:
 
 # Total Renewable Energy Capacity World Per Technology
 specific_technologies = ["Bioenergy", "Geothermal", "Wind", "Solar", "Renewable hydropower", "Marine"]
-filtered_tech_df = df_regions[(df_regions['Region'] == 'World') & (df_regions['Technology'].isin(specific_technologies))]
+filtered_tech_df = df_regions[(df_regions['Region/country/area'] == 'World') & (df_regions['Technology'].isin(specific_technologies))]
 pivot_tech_df = filtered_tech_df.pivot(index='Technology', columns='Year', values='value').round(2)
 pivot_tech_df = pivot_tech_df.sort_values(by=pivot_tech_df.columns[-1], ascending=False)
 pivot_tech_df.to_csv("data_IRENA_Renewable_Capacity/IRENA_Total_Renewable_Energy_Capacity_Per_Technology.csv")
