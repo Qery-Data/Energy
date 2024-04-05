@@ -17,7 +17,7 @@ shorthand_dict = {
     'Venezuela (Bolivarian Republic of)': 'Venezuela'
 }
 technology_name_mapping = {
-    'Total Renewable': 'Total renewable',
+    'Total Renewable': 'Total renewable energy',
     'Solar energy': 'Solar',
     'Wind energy': 'Wind',
     'Hydropower (excl. Pumped Storage)': 'Renewable hydropower',
