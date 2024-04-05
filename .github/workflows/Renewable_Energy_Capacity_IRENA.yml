@@ -22,11 +22,6 @@ jobs:
         env: 
           DW_TOKEN: ${{ secrets.DW_TOKEN }}
         run: python Renewable_Energy_Capacity_IRENA.py
-      - name: Update Renewable Generation
-        if: always()
-        env: 
-          DW_TOKEN: ${{ secrets.DW_TOKEN }}
-        run: python Renewable_Energy_Generation_IRENA.py
       - name: Commit and push if it changed
         run: |
           git config user.name "${GITHUB_ACTOR}"
