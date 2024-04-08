@@ -1,64 +1,60 @@
-Region/country/area,2022
-China,4335.0
-Japan,884.5
-Brazil,854.36
-Indonesia,816.5
-Republic of Korea,341.22
-Türkiye,275.1
-Philippines,113.9
-India,78.36
-Singapore,68.1
-Germany,52.0
-Chile,51.25
-UK,42.26
-Netherlands,23.0
-Estonia,22.0
-Belarus,18.8
-Cuba,13.14
-Bolivia,13.0
-Latvia,13.0
-Belgium,11.0
-Poland,11.0
-Cambodia,9.0
-Canada,8.4
-Moldova,8.33
-Finland,8.0
-France,7.0
-"China, Hong Kong SAR",5.94
-Argentina,3.62
-Croatia,3.0
-Iran,3.0
-Lithuania,2.5
-United Arab Emirates,2.4
-Mexico,2.04
-Romania,2.0
-Australia,1.26
-Denmark,1.0
-Slovenia,1.0
-El Salvador,0.7
-Chinese Taipei,0.61
-Albania,0.0
-Andorra,0.0
+Region/country/area,2023
+Japan,1003.0
+China,910.0
+Brazil,366.55
+Uruguay,314.0
+Türkiye,140.0
+Germany,120.0
+Thailand,107.01
+Lithuania,98.0
+Indonesia,96.49
+France,60.0
+Bolivia,58.91
+India,52.0
+Italy,42.0
+Luxembourg,39.0
+Chile,32.0
+Slovenia,29.0
+Ukraine,26.0
+Mexico,21.4
+United Kingdom,18.0
+Korea,16.0
+Poland,14.0
+Argentina,13.54
+Singapore,12.01
+Egypt,8.0
+Kazakhstan,6.18
+Czechia,4.4
+Belarus,1.5
+Belgium,1.0
+Hungary,1.0
+New Zealand,1.0
+Timor-Leste,0.03
 Angola,0.0
-Aruba,0.0
+Australia,0.0
 Austria,0.0
 Azerbaijan,0.0
+Bahamas,0.0
 Bangladesh,0.0
 Belize,0.0
 Bosnia and Herzegovina,0.0
 Bulgaria,0.0
 Burkina Faso,0.0
 Burundi,0.0
+Cambodia,0.0
+Canada,0.0
 Chad,0.0
 Colombia,0.0
 Congo,0.0
 Costa Rica,0.0
+Croatia,0.0
+Cuba,0.0
 Cyprus,0.0
-Czechia,0.0
 DR Congo,0.0
+Denmark,0.0
 Dominican Republic,0.0
 Ecuador,0.0
-Egypt,0.0
+El Salvador,0.0
 Eswatini,0.0
 Ethiopia,0.0
 Faroe Islands,0.0
@@ -67,37 +63,35 @@ French Guiana,0.0
 Gabon,0.0
 Ghana,0.0
 Greece,0.0
-Greenland,0.0
 Guadeloupe,0.0
 Guatemala,0.0
 Guyana,0.0
 Honduras,0.0
-Hungary,0.0
+Hong Kong SAR,0.0
+Iran,0.0
 Ireland,0.0
 Israel,0.0
 Jamaica,0.0
 Jordan,0.0
-Kazakhstan,0.0
 Kenya,0.0
 Lao PDR,0.0
 Lebanon,0.0
 Liberia,0.0
-Luxembourg,0.0
 Madagascar,0.0
 Malawi,0.0
 Malaysia,0.0
-Maldives,0.0
 Mali,0.0
 Malta,0.0
 Martinique,0.0
 Mauritius,0.0
+Moldova,0.0
 Morocco,0.0
 Mozambique,0.0
 Myanmar,0.0
 Namibia,0.0
 Nepal,0.0
+Netherlands,0.0
 New Caledonia,0.0
-New Zealand,0.0
 Nicaragua,0.0
 Nigeria,0.0
 North Macedonia,0.0
@@ -107,9 +101,9 @@ Panama,0.0
 Papua New Guinea,0.0
 Paraguay,0.0
 Peru,0.0
-Portugal,0.0
 Puerto Rico,0.0
 Qatar,0.0
+Romania,0.0
 Russia,0.0
 Rwanda,0.0
 Réunion,0.0
@@ -125,17 +119,22 @@ Spain,0.0
 Sri Lanka,0.0
 State of Palestine,0.0
 Sudan,0.0
+Suriname,0.0
 Sweden,0.0
 Switzerland,0.0
-Syrian Arab Republic,0.0
-Thailand,0.0
+Syria,0.0
+Tanzania,0.0
 Uganda,0.0
-Ukraine,0.0
-United Republic of Tanzania,0.0
-Uruguay,0.0
+United Arab Emirates,0.0
 Vanuatu,0.0
+Venezuela,0.0
 Viet Nam,0.0
 Zambia,0.0
 Zimbabwe,0.0
-Italy,-4.0
-USA,-38.1
+Portugal,-1.0
+Estonia,-2.0
+Chinese Taipei,-9.75
+Latvia,-11.0
+Philippines,-18.27
+United States,-112.0
+Finland,-138.0
