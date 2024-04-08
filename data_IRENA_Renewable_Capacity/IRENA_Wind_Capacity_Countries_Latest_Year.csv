@@ -1,102 +1,104 @@
-Region/country/area,2022
-China,365964.19
-USA,140861.61
-Germany,66294.0
-India,41929.78
-Spain,29307.84
-UK,28760.0
-Brazil,24163.13
-France,21119.98
-Canada,15295.46
-Sweden,14557.0
-Italy,11779.73
-Türkiye,11396.18
-Australia,10555.0
-Netherlands,8747.0
-Poland,7987.34
-Mexico,7312.66
-Denmark,7087.84
-Finland,5614.0
-Portugal,5455.33
-Belgium,5251.4
-Norway,5134.0
-Greece,4879.13
-Viet Nam,4628.0
-Ireland,4619.04
-Japan,4372.0
-Chile,3829.68
-Austria,3735.81
-Argentina,3310.12
-South Africa,3102.5
-Romania,3014.96
-Russia,2218.0
-Republic of Korea,1908.46
+Region/country/area,2023
+China,441894.95
+United States,148019.86
+Germany,69459.0
+India,44736.24
+Spain,31027.76
+United Kingdom,30215.17
+Brazil,29135.12
+France,22195.58
+Canada,16989.42
+Sweden,16252.0
+Italy,12307.51
+Türkiye,11697.16
+Australia,11327.0
+Netherlands,10749.0
+Poland,9307.24
+Denmark,7481.82
+Mexico,7317.68
+Finland,6957.0
+Viet Nam,5888.0
+Portugal,5617.14
+Belgium,5503.55
+Japan,5232.0
+Greece,5220.33
+Norway,5065.0
+Ireland,4806.73
+Chile,4510.21
+Austria,3977.24
+Argentina,3706.32
+South Africa,3442.0
+Romania,3087.2
+Chinese Taipei,2673.82
+Russia,2517.75
+Korea,2167.32
+Egypt,1890.0
+Morocco,1858.0
+Pakistan,1845.16
 Ukraine,1761.0
-Egypt,1642.5
-Chinese Taipei,1581.06
-Morocco,1558.0
-Thailand,1545.3
-Uruguay,1516.49
-Pakistan,1435.16
-Kazakhstan,1107.75
-Croatia,1042.9
-New Zealand,913.0
-Lithuania,814.0
-Bulgaria,704.38
+Thailand,1545.32
+Uruguay,1516.48
+Kazakhstan,1440.0
+Lithuania,1287.0
+Croatia,1142.9
+New Zealand,1059.0
+Peru,705.39
+Bulgaria,702.08
 Jordan,614.01
+Serbia,511.0
 Philippines,442.9
 Kenya,436.1
 Dominican Republic,417.1
-Peru,408.99
-Ethiopia,404.01
-Serbia,398.0
-Costa Rica,390.22
-Iran,342.0
-Czechia,339.41
+Estonia,408.0
+Costa Rica,407.62
+Saudi Arabia,403.25
+Iran,364.89
+Czechia,343.4
 Panama,336.0
+Ethiopia,324.01
 Hungary,324.0
-Estonia,315.0
-Sri Lanka,252.0
+Israel,316.25
+Sri Lanka,267.0
 Tunisia,245.0
 Honduras,238.9
+Luxembourg,221.33
 Nicaragua,186.2
-Luxembourg,165.44
 Senegal,158.7
-Cyprus,157.5
+Cyprus,158.0
 Mongolia,155.99
 Indonesia,154.31
-Kosovo*,138.75
-Venezuela,138.0
-Latvia,136.13
+Moldova,141.32
+Latvia,141.23
+Kosovo,137.22
+Mauritania,136.78
+Bolivia,135.0
 Bosnia and Herzegovina,135.0
-Bolivia,131.4
-Belarus,120.0
+Belarus,122.0
 Montenegro,118.0
-Moldova,115.1
+North Macedonia,109.8
 Guatemala,107.4
+United Arab Emirates,103.52
 Jamaica,102.0
-Puerto Rico,99.04
+Puerto Rico,99.0
 Switzerland,87.0
-Azerbaijan,66.0
+Djibouti,80.0
+Ecuador,71.13
+Azerbaijan,66.5
+Cuba,66.0
+New Caledonia,57.98
 El Salvador,54.0
 Guadeloupe,52.0
 Oman,50.0
-Curacao,46.5
-New Caledonia,37.58
-North Macedonia,37.0
-Mauritania,34.4
+Curaçao,46.5
+Venezuela,43.0
 Aruba,30.0
-Georgia,29.0
-Cabo Verde,27.8
-Israel,27.25
+Cabo Verde,26.8
 Faroe Islands,22.5
-Ecuador,21.15
-Djibouti,20.0
+Georgia,21.0
 Colombia,18.42
-Réunion,16.5
+Réunion,15.1
 Martinique,14.0
 Kuwait,12.4
-Cuba,11.75
 "Bonaire, Sint Eustatius and Saba",11.13
 Mauritius,10.63
 Fiji,10.18
@@ -105,30 +107,30 @@ Seychelles,6.0
 Namibia,5.23
 Slovakia,4.0
 Somalia,3.55
-Vanuatu,3.4
 Slovenia,3.33
 Falkland Islands (Malvinas),3.31
-Saudi Arabia,3.25
+Vanuatu,3.13
 Lebanon,3.0
-Armenia,2.92
+Armenia,2.9
 Bangladesh,2.9
-United Republic of Tanzania,2.4
+Bahrain,2.68
+Tanzania,2.4
 Saint Kitts and Nevis,2.2
-Iceland,1.8
+Iceland,1.91
+Democratic People's Republic of Korea (the),1.6
 Maldives,1.41
-Tonga,1.32
-Gambia,1.21
+Tonga,1.4
+Gambia (the),1.21
 Barbados,1.16
 Chad,1.1
 Eritrea,0.82
 Micronesia (Federated States of),0.82
 British Virgin Islands,0.8
-"China, Hong Kong SAR",0.8
+Cayman Islands,0.8
+Hong Kong SAR,0.8
 Uzbekistan,0.75
-Bahrain,0.74
 Bhutan,0.6
-Democratic People's Republic of Korea,0.6
-Syrian Arab Republic,0.6
+Syria,0.6
 Samoa,0.55
 Afghanistan,0.4
 Bahamas,0.3
@@ -139,18 +141,17 @@ Dominica,0.24
 Nepal,0.2
 Madagascar,0.18
 Guyana,0.17
+Greenland,0.11
 Malta,0.1
 Singapore,0.1
 United States Virgin Islands,0.1
 Grenada,0.08
-Greenland,0.05
 Belize,0.02
 Ghana,0.02
 Haiti,0.02
 Paraguay,0.02
 Tokelau,0.02
-United Arab Emirates,0.02
-Marshall Islands,0.01
+Marshall Islands (the),0.01
 Myanmar,0.01
-South Georgia and S Sandwich Islands,0.01
+South Georgia and the South Sandwich Islands,0.01
 Trinidad and Tobago,0.01
