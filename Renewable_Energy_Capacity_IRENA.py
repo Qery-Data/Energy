@@ -6,14 +6,25 @@ import pandas as pd
 os.makedirs('data_IRENA_Renewable_Capacity', exist_ok=True)
 
 shorthand_dict = {
-    'Lao People\'s Democratic Republic': 'Lao PDR',
-    'Iran (Islamic Republic of)': 'Iran',
+    'Bahamas (the)': 'Bahamas',
     'Bolivia (Plurinational State of)': 'Bolivia',
+    'China, Hong Kong Special Administrative Region': 'Hong Kong SAR',
+    'Congo (the)': 'Congo',
     'Democratic Republic of the Congo': 'DR Congo',
-    'United Kingdom': 'UK',
-    'United States of America': 'USA',
-    'Russian Federation': 'Russia',
+    'Dominican Republic (the)': 'Dominican Republic',
+    'Iran (Islamic Republic of)': 'Iran',
+    "Lao People's Democratic Republic": 'Lao PDR',
+    'Netherlands (Kingdom of the)': 'Netherlands',
+    'Philippines (the)': 'Philippines',
+    'Republic of Korea (the)': 'Korea',
     'Republic of Moldova': 'Moldova',
+    'Russian Federation (the)': 'Russia',
+    'State of Palestine (the)': 'State of Palestine',
+    'Syrian Arab Republic (the)': 'Syria',
+    'United Arab Emirates (the)': 'United Arab Emirates',
+    'United Kingdom of Great Britain and Northern Ireland (the)': 'United Kingdom',
+    'United Republic of Tanzania (the)': 'Tanzania',
+    'United States of America (the)': 'United States',
     'Venezuela (Bolivarian Republic of)': 'Venezuela'
 }
 technology_name_mapping = {
@@ -121,10 +132,9 @@ wind_aggregated['Technology'] = 'Wind'
 bioenergy_aggregated = df_countries[df_countries['Technology'].isin(['Solid biofuels', 'Liquid biofuels', 'Biogas'])].groupby(['Country/area', 'Year']).agg({'value': 'sum'}).reset_index()
 bioenergy_aggregated['Technology'] = 'Bioenergy'
 df_countries['Technology'] = df_countries['Technology'].replace(technology_name_mapping)
-df_countries['Country/area'] = df_countries['Country/area'].replace(shorthand_dict)
 df_countries = pd.concat([df_countries, solar_aggregated, wind_aggregated, bioenergy_aggregated], ignore_index=True)
 df_countries.rename(columns={'Country/area': 'Region/country/area'}, inplace=True)
-
+df_countries['Region/country/area'] = df_countries['Region/country/area'].replace(shorthand_dict)
 
 # Main function for regions
 def generate_files_for_technology(technology, df_regions, regions=['Africa', 'Asia', 'Central America and the Caribbean', 'Eurasia', 'Europe', 'Middle East', 'Oceania', 'South America', 'North America']):
