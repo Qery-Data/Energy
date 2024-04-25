@@ -14,7 +14,7 @@ rename_dict = {
     'Czechia': 'Czech Rep.',
     'Euro area (EA11-1999, EA12-2001, EA13-2007, EA15-2008, EA16-2009, EA17-2011, EA18-2014, EA19-2015, EA20-2023)': 'Euro area',
     'European Union - 27 countries (from 2020)': 'EU27',
-    'Kosovo*':'Kosovo'
+    'Kosovo*':'Kosovo',
     'Germany (until 1990 former territory of the FRG)': 'Germany',
     'Kosovo (under United Nations Security Council Resolution 1244/99)': 'Kosovo',
     'Türkiye': 'Turkey'
