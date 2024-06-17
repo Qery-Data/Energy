@@ -1,2 +1,2 @@
-pyjstat==2.3.0
-pandas==1.5.1
+pyjstat
+pandas
