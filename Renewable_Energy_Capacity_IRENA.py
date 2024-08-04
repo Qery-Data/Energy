@@ -64,7 +64,7 @@ query = {
       "selection": {
         "filter": "item",
         "values": [
-          "0"
+          "1"
         ]
       }
     },
