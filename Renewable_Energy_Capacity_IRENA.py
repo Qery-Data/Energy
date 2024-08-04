@@ -41,7 +41,7 @@ technology_name_mapping = {
 #RENEWABLE CAPACITY FOR REGIONS AND COUNTRIES
 
 #Regions
-url_regions = 'https://pxweb.irena.org:443/api/v1/en/IRENASTAT/Power Capacity and Generation/Region_ELECSTAT_2024_H1.px'
+url_regions = 'https://pxweb.irena.org:443/api/v1/en/IRENASTAT/Power Capacity and Generation/Region_ELECSTAT_2024_H2.px'
 query = {
   "query": [
     {
@@ -80,7 +80,7 @@ df_regions.rename(columns={'Region': 'Region/country/area'}, inplace=True)
 
 
 #Countries
-url_countries = 'https://pxweb.irena.org:443/api/v1/en/IRENASTAT/Power Capacity and Generation/Country_ELECSTAT_2024_H1.px'
+url_countries = 'https://pxweb.irena.org:443/api/v1/en/IRENASTAT/Power Capacity and Generation/Country_ELECSTAT_2024_H2.px'
 query = {
   "query": [
     {
@@ -219,7 +219,7 @@ net_additions_tech_df.to_csv("data_IRENA_Renewable_Capacity/IRENA_Total_Renewabl
 #ADDITIONAL FILES FOR RENEWABLE ENERGY SHARES OF TOTAL CAPACITY
 
 #Data Gathering from IRENA API
-url = 'https://pxweb.irena.org:443/api/v1/en/IRENASTAT/Power Capacity and Generation/RESHARE_2024_H1.px'
+url = 'https://pxweb.irena.org:443/api/v1/en/IRENASTAT/Power Capacity and Generation/RESHARE_2024_H2.px'
 query = {
      "query": [
     {
