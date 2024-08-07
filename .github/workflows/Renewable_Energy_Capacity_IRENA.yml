@@ -2,7 +2,7 @@ name: Renewable Energy IRENA
 on: 
   workflow_dispatch:
   schedule:
-    - cron: "5 9 * * *"
+    - cron: "5 9 * * 1"
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
