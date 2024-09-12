@@ -1,115 +1,100 @@
 from pyjstat import pyjstat
 import requests
 import os
-from datetime import datetime
 import pandas as pd
+import numpy as np 
+
+# Ensure output directory exists
 os.makedirs('data_IRENA_Renewable_Capacity', exist_ok=True)
 
+# Shorthand and technology mappings
 shorthand_dict = {
-    'Bahamas (the)': 'Bahamas',
-    'Bolivia (Plurinational State of)': 'Bolivia',
-    'China, Hong Kong Special Administrative Region': 'Hong Kong SAR',
-    'Congo (the)': 'Congo',
-    'Democratic Republic of the Congo (the)': 'DR Congo',
-    'Dominican Republic (the)': 'Dominican Republic',
-    'Iran (Islamic Republic of)': 'Iran',
-    "Lao People's Democratic Republic (the)": 'Lao PDR',
-    'Netherlands (Kingdom of the)': 'Netherlands',
-    'Philippines (the)': 'Philippines',
-    'Republic of Korea (the)': 'Korea',
-    'Republic of Moldova (the)': 'Moldova',
-    'Russian Federation (the)': 'Russia',
-    'State of Palestine (the)': 'State of Palestine',
-    'Sudan (the)': 'Sudan',
-    'Syrian Arab Republic (the)': 'Syria',
-    'United Arab Emirates (the)': 'United Arab Emirates',
+    'Bahamas (the)': 'Bahamas', 'Bolivia (Plurinational State of)': 'Bolivia', 
+    'China, Hong Kong Special Administrative Region': 'Hong Kong SAR', 'Congo (the)': 'Congo',
+    'Democratic Republic of the Congo (the)': 'DR Congo', 'Dominican Republic (the)': 'Dominican Republic',
+    'Iran (Islamic Republic of)': 'Iran', "Lao People's Democratic Republic (the)": 'Lao PDR',
+    'Netherlands (Kingdom of the)': 'Netherlands', 'Philippines (the)': 'Philippines',
+    'Republic of Korea (the)': 'Korea', 'Republic of Moldova (the)': 'Moldova',
+    'Russian Federation (the)': 'Russia', 'State of Palestine (the)': 'State of Palestine',
+    'Sudan (the)': 'Sudan', 'Syrian Arab Republic (the)': 'Syria', 
+    'United Arab Emirates (the)': 'United Arab Emirates', 
     'United Kingdom of Great Britain and Northern Ireland (the)': 'United Kingdom',
-    'United Republic of Tanzania (the)': 'Tanzania',
-    'United States of America (the)': 'United States',
+    'United Republic of Tanzania (the)': 'Tanzania', 'United States of America (the)': 'United States',
     'Venezuela (Bolivarian Republic of)': 'Venezuela'
 }
+
 technology_name_mapping = {
-    'Total Renewable': 'Total renewable energy',
-    'Solar energy': 'Solar',
-    'Wind energy': 'Wind',
-    'Hydropower (excl. Pumped Storage)': 'Renewable hydropower',
-    'Marine energy': 'Marine',
-    'Bioenergy': 'Bioenergy',  
-    'Geothermal energy': 'Geothermal'
+    'Total Renewable': 'Total renewable energy', 'Solar energy': 'Solar', 'Wind energy': 'Wind',
+    'Hydropower (excl. pumped storage)': 'Renewable hydropower', 'Marine energy': 'Marine', 
+    'Bioenergy': 'Bioenergy', 'Geothermal energy': 'Geothermal'
 }
 
-#RENEWABLE CAPACITY FOR REGIONS AND COUNTRIES
-
-#Regions
+# Fetch data from IRENA API
 url_regions = 'https://pxweb.irena.org:443/api/v1/en/IRENASTAT/Power Capacity and Generation/Region_ELECSTAT_2024_H2.px'
 query = {
-  "query": [
-    {
-      "code": "Technology",
-      "selection": {
-        "filter": "item",
-        "values": [
-          "0",
-          "1",
-          "2",
-          "3",
-          "4",
-          "5",
-          "6"
-        ]
-      }
-    },
-    {
-      "code": "Data Type",
-      "selection": {
-        "filter": "item",
-        "values": [
-          "1"
-        ]
-      }
-    },
-    {
-      "code": "Year",
-      "selection": {
-        "filter": "item",
-        "values": [
-          "0",
-          "1",
-          "10",
-          "11",
-          "12",
-          "13",
-          "14",
-          "15",
-          "16",
-          "17",
-          "18",
-          "19",
-          "2",
-          "20",
-          "21",
-          "22",
-          "23",
-          "3",
-          "4",
-          "5",
-          "6",
-          "7",
-          "8",
-          "9"
-        ]
-      }
-    }
-  ],
-  "response": {
-    "format": "json-stat2"
-  }
+    "query": [
+        {"code": "Technology", "selection": {"filter": "item", "values": ["0", "1", "2", "3", "4", "5", "6"]}},
+        {"code": "Data Type", "selection": {"filter": "item", "values": ["1"]}},
+        {"code": "Year", "selection": {"filter": "item", "values": [str(i) for i in range(24)]}}
+    ],
+    "response": {"format": "json-stat2"}
 }
-result_regions = requests.post(url_regions, json=query)
-df_regions = pyjstat.Dataset.read(result_regions.text).write('dataframe')
+
+response = requests.post(url_regions, json=query)
+df_regions = pyjstat.Dataset.read(response.text).write('dataframe')
+
+# Replace shorthand regions and technology names
 df_regions['Technology'] = df_regions['Technology'].replace(technology_name_mapping)
 df_regions.rename(columns={'Region': 'Region/country/area'}, inplace=True)
 
+# Process world data once for all technologies
+def process_world_data(df_regions, technologies):
+    for technology in technologies:
+        filename_prefix = "data_IRENA_Renewable_Capacity/IRENA_" + technology.title().replace(" ", "_") + "_Capacity"
+        filtered_world_df = df_regions[(df_regions['Region/country/area'] == 'World') & (df_regions['Technology'] == technology)]
+        pivot_world_df = filtered_world_df.pivot(index='Technology', columns='Year', values='value').round(2)
+        
+        # Save world data
+        pivot_world_df.to_csv(filename_prefix + "_World.csv")
+        
+        # World Net Additions
+        net_additions_world_df = pivot_world_df.diff(axis=1).round(2)
+        net_additions_world_df.to_csv(filename_prefix + "_World_Net_Additions.csv")
+
+# Process regional data for each technology
+def generate_files_for_technology(technology, df_regions, regions=None):
+    if regions is None:
+        regions = ['Africa', 'Asia', 'Central America and the Caribbean', 'Eurasia', 'Europe', 
+                   'Middle East', 'Oceania', 'South America', 'North America']
+
+    # Filename prefix
+    filename_prefix = "data_IRENA_Renewable_Capacity/IRENA_" + technology.title().replace(" ", "_") + "_Capacity"
+
+    # Regions Data
+    filtered_regions_df = df_regions[(df_regions['Region/country/area'].isin(regions)) & (df_regions['Technology'] == technology)]
+    pivot_regions_df = filtered_regions_df.pivot(index='Region/country/area', columns='Year', values='value').round(2)
+
+    # Sort and save regions data
+    pivot_regions_df = pivot_regions_df.sort_values(by=pivot_regions_df.columns[-1], ascending=False)
+    pivot_regions_df.to_csv(filename_prefix + "_Regions.csv")
+
+    # Regions Net Additions
+    net_additions_regions_df = pivot_regions_df.diff(axis=1).round(2)
+    net_additions_regions_df.to_csv(filename_prefix + "_Regions_Net_Additions.csv")
+
+    # Regions Share (percentage of total), skip NaN during sum
+    share_regions_df = (pivot_regions_df.divide(pivot_regions_df.sum(skipna=True), axis=1) * 100).round(2)
+    share_regions_df.to_csv(filename_prefix + "_Regions_Share.csv")
+
+# List of technologies to process
+technologies = ['Total renewable energy', 'Solar', 'Wind', 'Renewable hydropower', 'Marine', 'Bioenergy', 'Geothermal']
+
+# Process world data once
+process_world_data(df_regions, technologies)
+
+# Process regional data for each technology
+for tech in technologies:
+    generate_files_for_technology(tech, df_regions)
 
 #Countries
 url_countries = 'https://pxweb.irena.org:443/api/v1/en/IRENASTAT/Power Capacity and Generation/Country_ELECSTAT_2024_H2.px'
@@ -200,46 +185,6 @@ df_countries['Technology'] = df_countries['Technology'].replace(technology_name_
 df_countries = pd.concat([df_countries, solar_aggregated, wind_aggregated, bioenergy_aggregated], ignore_index=True)
 df_countries.rename(columns={'Country/area': 'Region/country/area'}, inplace=True)
 df_countries['Region/country/area'] = df_countries['Region/country/area'].replace(shorthand_dict)
-
-# Main function to generate files for each technology
-def generate_files_for_technology(technology, df_regions, regions=['Africa', 'Asia', 'Central America and the Caribbean', 'Eurasia', 'Europe', 'Middle East', 'Oceania', 'South America', 'North America']):
-    # Filename prefix
-    filename_prefix = "data_IRENA_Renewable_Capacity/IRENA_" + technology.title().replace(" ", "_") + "_Capacity"
-
-    # World Data
-    filtered_world_df = df_regions[(df_regions['Region/country/area'] == 'World') & (df_regions['Technology'] == technology)]
-    pivot_world_df = filtered_world_df.pivot(index='Technology', columns='Year', values='value').round(2)
-    if not pivot_world_df.empty:
-        pivot_world_df.to_csv(filename_prefix + "_World.csv")
-
-        # World Net Additions (diff removes the year 2000 automatically)
-        net_additions_world_df = pivot_world_df.diff(axis=1).round(2)
-        net_additions_world_df.to_csv(filename_prefix + "_World_Net_Additions.csv")
-
-    # Regions Data
-    filtered_regions_df = df_regions[(df_regions['Region/country/area'].isin(regions)) & (df_regions['Technology'] == technology)]
-    pivot_regions_df = filtered_regions_df.pivot(index='Region/country/area', columns='Year', values='value').round(2)
-
-    # Check if the pivoted regions DataFrame is empty
-    if not pivot_regions_df.empty:
-        pivot_regions_df = pivot_regions_df[pivot_regions_df.sum(axis=1) != 0]
-        pivot_regions_df = pivot_regions_df.sort_values(by=[pivot_regions_df.columns[-1], 'Region/country/area'], ascending=[False, True])
-        pivot_regions_df.to_csv(filename_prefix + "_Regions.csv")
-
-        # Regions Net Additions
-        net_additions_regions_df = pivot_regions_df.diff(axis=1).sort_values(by=[pivot_regions_df.columns[-1], 'Region/country/area'], ascending=[False, True]).round(2)
-        net_additions_regions_df.to_csv(filename_prefix + "_Regions_Net_Additions.csv")
-
-        # Regions Share (percentage of total)
-        share_regions_df = (pivot_regions_df.divide(pivot_regions_df.sum(), axis=1) * 100).sort_values(by=pivot_regions_df.columns[-1], ascending=False).round(2)
-        share_regions_df.to_csv(filename_prefix + "_Regions_Share.csv")
-
-# List of technologies to process
-technologies = ['Total renewable energy', 'Solar', 'Wind', 'Renewable hydropower', 'Marine', 'Bioenergy', 'Geothermal']
-
-# Process each technology
-for tech in technologies:
-    generate_files_for_technology(tech, df_regions)
 
 # Main function for countries
 def generate_files_for_technology(technology, df_countries, regions=['Africa', 'Asia', 'Central America and the Caribbean', 'Eurasia', 'Europe', 'Middle East', 'Oceania', 'South America', 'North America']):
