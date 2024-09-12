@@ -202,7 +202,7 @@ df_countries.rename(columns={'Country/area': 'Region/country/area'}, inplace=Tru
 df_countries['Region/country/area'] = df_countries['Region/country/area'].replace(shorthand_dict)
 
 # Main function to generate files for each technology
-def generate_files_for_technology(technology, df_regions, regions=['Africa', 'Asia', 'Central America and the Caribbean', 'Eurasia', 'Europe', 'Middle East', 'Oceania', 'South America', 'North America', 'World']):
+def generate_files_for_technology(technology, df_regions, regions=['Africa', 'Asia', 'Central America and the Caribbean', 'Eurasia', 'Europe', 'Middle East', 'Oceania', 'South America', 'North America']):
     # Filename prefix
     filename_prefix = "data_IRENA_Renewable_Capacity/IRENA_" + technology.title().replace(" ", "_") + "_Capacity"
 
