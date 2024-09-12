@@ -47,6 +47,9 @@ df_regions = pyjstat.Dataset.read(response.text).write('dataframe')
 df_regions['Technology'] = df_regions['Technology'].replace(technology_name_mapping)
 df_regions.rename(columns={'Region': 'Region/country/area'}, inplace=True)
 
+# Fill missing values with np.nan (which is handled correctly by pandas)
+df_regions = df_regions.fillna(value={'value': np.nan})
+
 # Process world data once for all technologies
 def process_world_data(df_regions, technologies):
     for technology in technologies:
@@ -57,8 +60,9 @@ def process_world_data(df_regions, technologies):
         # Save world data
         pivot_world_df.to_csv(filename_prefix + "_World.csv")
         
-        # World Net Additions
+        # World Net Additions (Remove year 2000 as it has no previous year to compare with)
         net_additions_world_df = pivot_world_df.diff(axis=1).round(2)
+        net_additions_world_df = net_additions_world_df.drop(columns='2000', errors='ignore')  # Drop year 2000
         net_additions_world_df.to_csv(filename_prefix + "_World_Net_Additions.csv")
 
 # Process regional data for each technology
@@ -78,8 +82,13 @@ def generate_files_for_technology(technology, df_regions, regions=None):
     pivot_regions_df = pivot_regions_df.sort_values(by=pivot_regions_df.columns[-1], ascending=False)
     pivot_regions_df.to_csv(filename_prefix + "_Regions.csv")
 
-    # Regions Net Additions
+    # Regions Net Additions (Remove year 2000 as it has no previous year to compare with)
     net_additions_regions_df = pivot_regions_df.diff(axis=1).round(2)
+    net_additions_regions_df = net_additions_regions_df.drop(columns='2000', errors='ignore')  # Drop year 2000
+
+    # Sort by the last available year for net additions
+    last_year = net_additions_regions_df.columns[-1]
+    net_additions_regions_df = net_additions_regions_df.sort_values(by=last_year, ascending=False)
     net_additions_regions_df.to_csv(filename_prefix + "_Regions_Net_Additions.csv")
 
     # Regions Share (percentage of total), skip NaN during sum
@@ -95,6 +104,7 @@ process_world_data(df_regions, technologies)
 # Process regional data for each technology
 for tech in technologies:
     generate_files_for_technology(tech, df_regions)
+
 
 #Countries
 url_countries = 'https://pxweb.irena.org:443/api/v1/en/IRENASTAT/Power Capacity and Generation/Country_ELECSTAT_2024_H2.px'
