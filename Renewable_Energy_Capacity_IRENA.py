@@ -197,7 +197,7 @@ df_countries.rename(columns={'Country/area': 'Region/country/area'}, inplace=Tru
 df_countries['Region/country/area'] = df_countries['Region/country/area'].replace(shorthand_dict)
 
 # Main function for countries
-def generate_files_for_technology(technology, df_countries, regions=['Africa', 'Asia', 'Central America and the Caribbean', 'Eurasia', 'Europe', 'Middle East', 'Oceania', 'South America', 'North America']):
+def generate_files_for_technology(technology, df_countries):
     # Filename prefix
     filename_prefix = "data_IRENA_Renewable_Capacity/IRENA_" + technology.title().replace(" ", "_") + "_Capacity"
     
@@ -209,8 +209,13 @@ def generate_files_for_technology(technology, df_countries, regions=['Africa', '
 
     # Countries Latest Year
     latest_year = pivot_countries_df.columns[-1]
-    latest_year_df = pivot_countries_df[[latest_year]].sort_values(by=[latest_year, 'Region/country/area'], ascending=[False, True])
-    latest_year_df = latest_year_df[latest_year_df[latest_year] != 0]
+
+    # Drop countries where the latest year is NaN, but keep rows with 0 values
+    latest_year_df = pivot_countries_df.dropna(subset=[latest_year])
+    
+    # Sort the remaining countries and save
+    latest_year_df = latest_year_df[[latest_year]].sort_values(by=[latest_year, 'Region/country/area'], ascending=[False, True])
+    latest_year_df = latest_year_df[latest_year_df[latest_year] != 0]  # Keep rows with 0 values
     latest_year_df.to_csv(filename_prefix + "_Countries_Latest_Year.csv")
 
     # Countries Net Additions
@@ -219,7 +224,6 @@ def generate_files_for_technology(technology, df_countries, regions=['Africa', '
     net_additions_countries_df.to_csv(filename_prefix + "_Countries_Net_Additions.csv")
 
     # Countries Net Additions Latest Year
-    latest_year_net_additions = net_additions_countries_df[[latest_year]].sort_values(by=[latest_year, 'Region/country/area'], ascending=[False, True])
     latest_year_net_additions = net_additions_countries_df.loc[latest_year_df.index][[latest_year]].sort_values(by=[latest_year, 'Region/country/area'], ascending=[False, True])
     latest_year_net_additions.to_csv(filename_prefix + "_Countries_Net_Additions_Latest_Year.csv")
 
