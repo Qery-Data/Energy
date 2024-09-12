@@ -205,6 +205,7 @@ def generate_files_for_technology(technology, df_countries):
     filtered_countries_df = df_countries[df_countries['Technology'] == technology]
     pivot_countries_df = filtered_countries_df.pivot(index='Region/country/area', columns='Year', values='value').round(2)
     pivot_countries_df.sort_index(inplace=True)
+    pivot_countries_df = pivot_countries_df.dropna(how='all')
     pivot_countries_df.to_csv(filename_prefix + "_Countries.csv")
 
     # Countries Latest Year
