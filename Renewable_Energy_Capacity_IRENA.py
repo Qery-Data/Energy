@@ -201,7 +201,6 @@ df_countries = pd.concat([df_countries, solar_aggregated, wind_aggregated, bioen
 df_countries.rename(columns={'Country/area': 'Region/country/area'}, inplace=True)
 df_countries['Region/country/area'] = df_countries['Region/country/area'].replace(shorthand_dict)
 
-# Main function to generate files for each technology
 def generate_files_for_technology(technology, df_regions, regions=['Africa', 'Asia', 'Central America and the Caribbean', 'Eurasia', 'Europe', 'Middle East', 'Oceania', 'South America', 'North America']):
     # Filename prefix
     filename_prefix = "data_IRENA_Renewable_Capacity/IRENA_" + technology.title().replace(" ", "_") + "_Capacity"
@@ -209,30 +208,29 @@ def generate_files_for_technology(technology, df_regions, regions=['Africa', 'As
     # World Data
     filtered_world_df = df_regions[(df_regions['Region/country/area'] == 'World') & (df_regions['Technology'] == technology)]
     pivot_world_df = filtered_world_df.pivot(index='Technology', columns='Year', values='value').round(2)
-    if not pivot_world_df.empty:
-        pivot_world_df.to_csv(filename_prefix + "_World.csv")
+    pivot_world_df.to_csv(filename_prefix + "_World.csv")
 
-        # World Net Additions (diff removes the year 2000 automatically)
-        net_additions_world_df = pivot_world_df.diff(axis=1).round(2)
-        net_additions_world_df.to_csv(filename_prefix + "_World_Net_Additions.csv")
+    # World Net Additions
+    net_additions_world_df = pivot_world_df.diff(axis=1).round(2)
+    
+    # Drop the year 2000 column if it exists
+    net_additions_world_df.drop(columns='2000', errors='ignore', inplace=True)
+    net_additions_world_df.to_csv(filename_prefix + "_World_Net_Additions.csv")
 
     # Regions Data
-    filtered_regions_df = df_regions[(df_regions['Region/country/area'].isin(regions)) & (df_regions['Technology'] == technology)]
+    filtered_regions_df = df_regions[df_regions['Region/country/area'].isin(regions) & (df_regions['Technology'] == technology)]
     pivot_regions_df = filtered_regions_df.pivot(index='Region/country/area', columns='Year', values='value').round(2)
+    pivot_regions_df = pivot_regions_df[pivot_regions_df.sum(axis=1) != 0].sort_values(by=[pivot_regions_df.columns[-1], 'Region/country/area'], ascending=[False, True])
+    pivot_regions_df.to_csv(filename_prefix + "_Regions.csv")
 
-    # Check if the pivoted regions DataFrame is empty
-    if not pivot_regions_df.empty:
-        pivot_regions_df = pivot_regions_df[pivot_regions_df.sum(axis=1) != 0]
-        pivot_regions_df = pivot_regions_df.sort_values(by=[pivot_regions_df.columns[-1], 'Region/country/area'], ascending=[False, True])
-        pivot_regions_df.to_csv(filename_prefix + "_Regions.csv")
+    # Regions Net Additions
+    net_additions_regions_df = pivot_regions_df.diff(axis=1).round(2)
+    net_additions_regions_df.drop(columns='2000', errors='ignore', inplace=True)
+    net_additions_regions_df.to_csv(filename_prefix + "_Regions_Net_Additions.csv")
 
-        # Regions Net Additions
-        net_additions_regions_df = pivot_regions_df.diff(axis=1).sort_values(by=[pivot_regions_df.columns[-1], 'Region/country/area'], ascending=[False, True]).round(2)
-        net_additions_regions_df.to_csv(filename_prefix + "_Regions_Net_Additions.csv")
-
-        # Regions Share (percentage of total)
-        share_regions_df = (pivot_regions_df.divide(pivot_regions_df.sum(), axis=1) * 100).sort_values(by=pivot_regions_df.columns[-1], ascending=False).round(2)
-        share_regions_df.to_csv(filename_prefix + "_Regions_Share.csv")
+    # Regions Share
+    share_regions_df = (pivot_regions_df.divide(pivot_regions_df.sum(), axis=1) * 100).sort_values(by=pivot_regions_df.columns[-1], ascending=False).round(2)
+    share_regions_df.to_csv(filename_prefix + "_Regions_Share.csv")
 
 # List of technologies to process
 technologies = ['Total renewable energy', 'Solar', 'Wind', 'Renewable hydropower', 'Marine', 'Bioenergy', 'Geothermal']
