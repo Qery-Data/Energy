@@ -3,28 +3,29 @@ Japan,1003.0
 China,910.0
 Brazil,366.55
 Uruguay,314.0
+Indonesia,282.48
 Türkiye,140.0
 Germany,120.0
 Thailand,107.01
 Lithuania,98.0
-Indonesia,96.49
+Bolivia,63.91
 France,60.0
-Bolivia,58.91
 India,52.0
 Italy,42.0
 Luxembourg,39.0
 Chile,32.0
+Panama,32.0
 Slovenia,29.0
 Ukraine,26.0
-Mexico,21.4
-United Kingdom,18.0
-Korea,16.0
+Korea,14.0
 Poland,14.0
 Argentina,13.54
 Singapore,12.01
 Egypt,8.0
 Kazakhstan,6.18
 Czechia,4.4
+United Arab Emirates,4.3
+Mexico,3.91
 Belarus,1.5
 Belgium,1.0
 Hungary,1.0
@@ -97,7 +98,6 @@ Nigeria,0.0
 North Macedonia,0.0
 Norway,0.0
 Pakistan,0.0
-Panama,0.0
 Papua New Guinea,0.0
 Paraguay,0.0
 Peru,0.0
@@ -108,7 +108,6 @@ Russia,0.0
 Rwanda,0.0
 Réunion,0.0
 Saint Lucia,0.0
-Samoa,0.0
 Senegal,0.0
 Serbia,0.0
 Sierra Leone,0.0
@@ -125,15 +124,17 @@ Switzerland,0.0
 Syria,0.0
 Tanzania,0.0
 Uganda,0.0
-United Arab Emirates,0.0
 Vanuatu,0.0
 Venezuela,0.0
 Viet Nam,0.0
+Yemen,0.0
 Zambia,0.0
 Zimbabwe,0.0
+Samoa,-0.01
 Portugal,-1.0
 Estonia,-2.0
-Chinese Taipei,-9.75
+United Kingdom,-3.86
+Chinese Taipei,-10.54
 Latvia,-11.0
 Philippines,-18.27
 United States,-112.0

@@ -8,24 +8,22 @@ Kyrgyzstan,429.3
 DR Congo,240.0
 Türkiye,208.0
 Uzbekistan,190.0
-Chile,182.4
+Chile,184.3
 Iran,176.0
 Azerbaijan,137.1
 Norway,132.0
 Germany,120.0
 Cambodia,115.0
-India,111.1
-Lao PDR,110.55
+India,112.45
+Lao PDR,110.54
 Viet Nam,103.8
 Brazil,101.67
 Kazakhstan,96.0
-Indonesia,95.18
 Georgia,70.0
 Papua New Guinea,65.6
 Ethiopia,61.3
-Philippines,52.5
+Philippines,56.18
 Costa Rica,41.37
-United States,32.04
 Switzerland,30.0
 Italy,26.0
 Japan,18.0
@@ -33,9 +31,10 @@ Armenia,12.6
 Sri Lanka,11.7
 Finland,6.0
 Greece,6.0
-Chinese Taipei,5.67
+Chinese Taipei,5.65
 Romania,3.0
 Spain,3.0
+Panama,2.76
 Burkina Faso,2.0
 Nicaragua,1.48
 Czechia,1.1
@@ -44,9 +43,11 @@ Guatemala,1.0
 Lithuania,1.0
 Serbia,1.0
 Kenya,0.8
+United Kingdom,0.75
 Madagascar,0.56
 Vanuatu,0.4
 Belarus,0.3
+South Georgia and the South Sandwich Islands,0.01
 Afghanistan,0.0
 Albania,0.0
 Algeria,0.0
@@ -123,7 +124,6 @@ New Caledonia,0.0
 New Zealand,0.0
 North Macedonia,0.0
 Pakistan,0.0
-Panama,0.0
 Paraguay,0.0
 Peru,0.0
 Puerto Rico,0.0
@@ -136,7 +136,6 @@ Sierra Leone,0.0
 Slovakia,0.0
 Solomon Islands,0.0
 South Africa,0.0
-South Georgia and the South Sandwich Islands,0.0
 Sudan,0.0
 Suriname,0.0
 Sweden,0.0
@@ -149,7 +148,6 @@ Togo,0.0
 Tunisia,0.0
 Turkmenistan,0.0
 Uganda,0.0
-United Kingdom,0.0
 Uruguay,0.0
 Venezuela,0.0
 Zambia,0.0
@@ -157,8 +155,10 @@ Zimbabwe,0.0
 Poland,-1.0
 Portugal,-1.0
 Slovenia,-4.0
-Korea,-7.42
+Korea,-8.0
 Latvia,-21.0
 Austria,-85.0
+Indonesia,-119.38
+United States,-211.96
 Ukraine,-334.8
-Russia,-827.12
+Russia,-827.13

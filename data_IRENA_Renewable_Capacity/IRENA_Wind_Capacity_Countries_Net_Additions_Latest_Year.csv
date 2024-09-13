@@ -6,16 +6,15 @@ Germany,3296.0
 India,2806.46
 Netherlands,1994.16
 Sweden,1973.0
-Canada,1724.44
-United Kingdom,1453.0
-France,1385.0
+Canada,1908.42
+United Kingdom,1340.1
 Finland,1280.0
 Poland,1157.0
-Chinese Taipei,1092.77
+Chinese Taipei,1092.72
+Australia,945.0
 Spain,914.0
 Japan,860.0
 Viet Nam,823.0
-Australia,772.0
 Chile,680.53
 Greece,518.0
 Italy,487.0
@@ -36,8 +35,8 @@ Israel,180.0
 Peru,166.4
 Croatia,156.0
 Serbia,113.0
-United Arab Emirates,103.5
 Mauritania,102.38
+United Arab Emirates,99.08
 Estonia,92.0
 Portugal,79.0
 Romania,72.0
@@ -57,8 +56,9 @@ Czechia,4.3
 Norway,3.0
 Azerbaijan,2.5
 Belarus,2.0
+Hungary,2.0
 Cyprus,0.5
-Mexico,0.02
+Greenland,0.45
 Afghanistan,0.0
 Algeria,0.0
 Aruba,0.0
@@ -86,11 +86,11 @@ Eritrea,0.0
 Falkland Islands (Malvinas),0.0
 Faroe Islands,0.0
 Fiji,0.0
+France,0.0
 French Polynesia,0.0
 Gambia (the),0.0
 Georgia,0.0
 Ghana,0.0
-Greenland,0.0
 Grenada,0.0
 Guadeloupe,0.0
 Guam,0.0
@@ -99,9 +99,7 @@ Guyana,0.0
 Haiti,0.0
 Honduras,0.0
 Hong Kong SAR,0.0
-Hungary,0.0
 Iceland,0.0
-Indonesia,0.0
 Jamaica,0.0
 Jordan,0.0
 Kenya,0.0
@@ -152,6 +150,8 @@ Uzbekistan,0.0
 Vanuatu,0.0
 Venezuela,0.0
 Uruguay,-0.01
-Armenia,-0.02
+Armenia,-0.03
 Cabo Verde,-0.1
+Indonesia,-2.01
 Ethiopia,-80.0
+Mexico,-315.96

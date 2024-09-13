@@ -5,20 +5,20 @@ Germany,61052.0
 India,44736.24
 Spain,31020.76
 Brazil,29135.12
-France,22193.58
+France,20309.78
 Canada,16989.42
 Sweden,16059.0
-United Kingdom,15469.67
+United Kingdom,15369.77
+Australia,12911.0
 Italy,12307.51
 Türkiye,11697.16
-Australia,11327.0
 Poland,9307.24
-Mexico,7317.68
+Mexico,7317.72
 Finland,6884.0
 Netherlands,6771.0
 Portugal,5592.14
 Greece,5220.33
-Japan,5078.5
+Japan,5153.0
 Norway,5062.7
 Denmark,4832.12
 Viet Nam,4784.0
@@ -30,7 +30,7 @@ South Africa,3442.0
 Belgium,3241.75
 Romania,3087.2
 Russia,2517.75
-Korea,2031.32
+Korea,2068.86
 Egypt,1890.0
 Morocco,1858.0
 Pakistan,1845.16
@@ -43,7 +43,7 @@ Croatia,1142.9
 Chinese Taipei,1104.82
 New Zealand,1059.0
 Peru,705.39
-Bulgaria,702.08
+Bulgaria,702.09
 Jordan,614.01
 Serbia,511.0
 Philippines,442.9
@@ -51,12 +51,12 @@ Kenya,436.1
 Dominican Republic,417.1
 Estonia,408.0
 Costa Rica,407.62
-Saudi Arabia,403.25
+Saudi Arabia,403.0
 Iran,364.89
 Czechia,343.4
 Panama,336.0
+Hungary,326.0
 Ethiopia,324.01
-Hungary,324.0
 Israel,316.25
 Sri Lanka,267.0
 Tunisia,245.0
@@ -66,7 +66,7 @@ Nicaragua,186.2
 Senegal,158.7
 Cyprus,158.0
 Mongolia,155.99
-Indonesia,154.31
+Indonesia,152.3
 Moldova,141.32
 Latvia,141.23
 Kosovo,137.22
@@ -77,25 +77,25 @@ Belarus,122.0
 Montenegro,118.0
 North Macedonia,109.8
 Guatemala,107.4
-United Arab Emirates,103.52
 Jamaica,102.0
+United Arab Emirates,99.1
 Puerto Rico,99.0
 Switzerland,87.0
 Djibouti,80.0
 Ecuador,71.13
 Azerbaijan,66.5
-Cuba,66.0
-New Caledonia,57.98
+New Caledonia,57.99
+Guadeloupe,56.03
 El Salvador,54.0
-Guadeloupe,52.0
+Venezuela,50.2
 Oman,50.0
 Curaçao,46.5
-Venezuela,43.0
 Aruba,30.0
 Cabo Verde,26.8
 Faroe Islands,22.5
 Georgia,21.0
 Colombia,18.42
+Cuba,16.0
 Réunion,15.1
 Martinique,14.0
 Kuwait,12.4
@@ -123,25 +123,25 @@ Tonga,1.4
 Gambia (the),1.21
 Barbados,1.16
 Chad,1.1
-Eritrea,0.82
-Micronesia (Federated States of),0.82
+Eritrea,0.83
+Micronesia (Federated States of),0.83
 British Virgin Islands,0.8
 Cayman Islands,0.8
 Hong Kong SAR,0.8
 Uzbekistan,0.75
 Bhutan,0.6
 Syria,0.6
+Greenland,0.56
 Samoa,0.55
 Afghanistan,0.4
 Bahamas,0.3
 Guam,0.28
 Cambodia,0.25
 French Polynesia,0.25
-Dominica,0.24
+Dominica,0.23
 Nepal,0.2
 Madagascar,0.18
 Guyana,0.17
-Greenland,0.11
 Malta,0.1
 Singapore,0.1
 United States Virgin Islands,0.1
