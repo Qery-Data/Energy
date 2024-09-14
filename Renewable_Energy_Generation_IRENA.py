@@ -33,7 +33,8 @@ url_regions = 'https://pxweb.irena.org:443/api/v1/en/IRENASTAT/Power Capacity an
 query = {
     "query": [
         {"code": "Technology", "selection": {"filter": "item", "values": ["0", "1", "2", "3", "4", "5", "6"]}},
-        {"code": "Data Type", "selection": {"filter": "item", "values": ["0"]}}
+        {"code": "Data Type", "selection": {"filter": "item", "values": ["0"]}},
+        {"code": "Year", "selection": {"filter": "item", "values": [str(i) for i in range(23)]}}
     ],
     "response": {"format": "json-stat2"}
 }
@@ -164,7 +165,6 @@ query = {
           "20",
           "21",
           "22",
-          "23",
           "3",
           "4",
           "5",
@@ -284,7 +284,6 @@ query = {
           "20",
           "21",
           "22",
-          "23",
           "3",
           "4",
           "5",
