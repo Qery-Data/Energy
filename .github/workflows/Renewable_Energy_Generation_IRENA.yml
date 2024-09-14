@@ -1,4 +1,4 @@
-name: Renewable Energy IRENA
+name: Renewable Energy Generation IRENA
 on: 
   workflow_dispatch:
   schedule:
