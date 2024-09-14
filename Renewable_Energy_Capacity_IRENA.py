@@ -47,7 +47,7 @@ df_regions = pyjstat.Dataset.read(response.text).write('dataframe')
 df_regions['Technology'] = df_regions['Technology'].replace(technology_name_mapping)
 df_regions.rename(columns={'Region': 'Region/country/area'}, inplace=True)
 
-# Fill missing values with np.nan (which is handled correctly by pandas)
+# Fill missing values with np.nan
 df_regions = df_regions.fillna(value={'value': np.nan})
 
 # Process world data once for all technologies
