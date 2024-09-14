@@ -1,152 +1,225 @@
-Region/country/area,2021
-China,656705.14
-USA,382814.0
-Germany,114647.0
-Brazil,72285.98
-UK,64662.0
-India,62272.48
-Spain,62061.0
-France,36831.35
-Canada,34753.0
-Türkiye,31436.75
-Sweden,27244.0
-Australia,24535.0
-Mexico,21074.87
-Italy,20927.3
-Netherlands,18004.85
-Poland,16233.55
-Denmark,16054.47
-Portugal,13215.61
-Argentina,12937.55
-Belgium,11997.6
-Norway,11769.18
-Greece,10482.98
-Ireland,9775.91
-Japan,9429.0
-Finland,8506.73
-Chile,7628.1
-Austria,6740.04
-Romania,6575.55
-Egypt,5269.44
-Morocco,5121.91
-Uruguay,4991.31
-Thailand,3552.4
-Ukraine,3510.61
-Pakistan,3480.77
-Republic of Korea,3183.0
-Russia,2897.42
-New Zealand,2642.0
-Viet Nam,2393.2
-Chinese Taipei,2209.0
-Croatia,2061.8
-Peru,1822.58
-Kazakhstan,1776.41
-Jordan,1590.0
-Costa Rica,1573.31
-Bulgaria,1433.56
-Lithuania,1361.7
-Philippines,1317.25
-Dominican Republic,1230.95
-Serbia,1084.54
-Ethiopia,817.2
-Honduras,778.08
-Estonia,733.0
-Hungary,664.0
-Nicaragua,655.84
-Sri Lanka,645.2
-Czechia,601.53
-Iran,586.84
-Mongolia,564.01
-Panama,530.24
-Tunisia,425.1
-Bosnia and Herzegovina,382.0
-Guatemala,323.8
-Montenegro,320.1
-Luxembourg,314.31
-South Africa,266.0
-Jamaica,264.55
-Cyprus,246.48
-Israel,178.0
-Belarus,173.0
-Puerto Rico,165.69
-Switzerland,146.0
-Latvia,141.44
-Curacao,140.51
-Aruba,133.05
-El Salvador,131.78
+Region/country/area,2022
+China,763342.87
+United States,439270.01
+Germany,124816.0
+Brazil,81631.57
+United Kingdom,80257.26
+India,69433.59
+Spain,62784.0
+France,38004.23
+Canada,36853.0
+Türkiye,34945.45
+Sweden,33253.0
+Australia,29108.0
+Netherlands,21400.8
+Mexico,20629.0
+Italy,20494.18
+Poland,19779.54
+Denmark,19027.83
+Norway,14809.86
+Argentina,14168.0
+Portugal,13244.01
+Belgium,12352.6
+Finland,12021.95
+Ireland,11208.43
+Greece,10883.25
+Japan,9297.0
+Chile,8893.0
+Viet Nam,8445.4
+Austria,7245.13
+Romania,6996.87
+Egypt,5677.45
+Russia,5547.5
+Morocco,5371.12
+Uruguay,4775.61
+Pakistan,4244.27
+Chinese Taipei,3543.1
+Korea,3372.0
+Ukraine,3358.68
+Thailand,3004.34
+New Zealand,2865.0
+Kazakhstan,2361.8
+Croatia,2137.8
+Peru,1931.87
+Jordan,1783.9
+Kuwait,1722.08
+Saudi Arabia,1588.0
+Lithuania,1512.4
+Bulgaria,1499.13
+Costa Rica,1369.25
+Dominican Republic,1175.44
+Philippines,1030.0
+Serbia,949.34
+Iran,759.0
+Sri Lanka,737.91
+Honduras,689.21
+Estonia,668.0
+Czechia,641.33
+Hungary,610.0
+Panama,584.3
+Nicaragua,561.87
+Ethiopia,560.57
+Mongolia,509.51
+Bolivia,440.54
+Senegal,395.56
+Bosnia and Herzegovina,391.0
+Kosovo,362.94
+Montenegro,324.7
+Tunisia,322.0
+Israel,317.0
+Guatemala,313.8
+Luxembourg,312.22
+Jamaica,272.33
+Cyprus,224.27
+South Africa,223.75
+Latvia,190.18
+Curaçao,183.39
+Belarus,176.6
+Puerto Rico,155.7
+Switzerland,150.0
+Moldova,142.37
+El Salvador,135.53
 Mauritania,131.19
-Kosovo,126.32
-Bolivia,119.62
-Oman,118.91
-Guadeloupe,106.68
-North Macedonia,103.34
-Azerbaijan,91.4
-Venezuela,89.43
-Georgia,83.4
-Kenya,82.8
-Moldova,77.0
+Aruba,130.99
+Oman,114.62
+Guadeloupe,110.93
+North Macedonia,107.66
+Faroe Islands,90.1
+Georgia,87.5
+Kenya,85.34
+Azerbaijan,83.3
+Colombia,74.3
 Cabo Verde,73.78
-Kuwait,70.68
 Djibouti,69.4
-Ecuador,62.01
-Colombia,60.0
-Faroe Islands,54.1
-Martinique,48.69
-Cuba,43.5
-New Caledonia,41.04
-"Bonaire, Sint Eustatius and Saba",28.76
-Namibia,21.62
-Mauritius,15.4
-Algeria,11.0
+Cuba,63.78
+Ecuador,60.6
+New Caledonia,43.11
+Martinique,40.24
+"Bonaire, Sint Eustatius and Saba",29.36
+Namibia,21.6
+Venezuela,16.22
+Algeria,16.0
+Mauritius,15.48
 Chad,8.9
 Indonesia,7.7
-Somalia,6.22
-Iceland,6.09
-Saudi Arabia,5.69
-Slovenia,5.59
+Seychelles,6.58
+Somalia,6.0
+Iceland,5.75
+Slovenia,5.73
 Saint Kitts and Nevis,5.58
 Bangladesh,5.08
-Seychelles,5.08
-Slovakia,5.0
-Réunion,4.3
-Falkland Islands (Malvinas),4.25
-United Republic of Tanzania,4.2
-Vanuatu,4.13
-Tonga,2.63
-Maldives,2.46
-Gambia,2.13
-British Virgin Islands,2.0
-Armenia,1.5
-Eritrea,1.44
+Falkland Islands (Malvinas),4.5
+Tanzania,4.21
+Slovakia,4.0
+Réunion,2.9
+Democratic People's Republic of Korea (the),2.8
+Vanuatu,2.77
+Maldives,2.47
+British Virgin Islands,2.46
+Gambia (the),2.13
+Armenia,1.8
+Eritrea,1.45
+Cayman Islands,1.4
+Tonga,1.31
 Bahrain,1.2
-Uzbekistan,1.2
-Dominica,1.19
-Democratic People's Republic of Korea,1.05
-Syrian Arab Republic,1.05
-"China, Hong Kong SAR",0.83
+Syria,1.05
+Micronesia (Federated States of),0.94
+Hong Kong SAR,0.83
 Bahamas,0.79
+Dominica,0.6
 Guam,0.5
-Madagascar,0.46
-Bhutan,0.39
-Guyana,0.35
+Madagascar,0.47
+Guyana,0.46
+Bhutan,0.43
 Nepal,0.35
 Singapore,0.35
 Cambodia,0.3
-Fiji,0.29
 United States Virgin Islands,0.27
 Grenada,0.22
-Samoa,0.2
+Samoa,0.19
 Afghanistan,0.12
+Fiji,0.09
 French Polynesia,0.08
+Haiti,0.07
 Barbados,0.06
-Haiti,0.06
 Malta,0.06
-Belize,0.04
+United Arab Emirates,0.05
 Ghana,0.04
 Paraguay,0.04
-United Arab Emirates,0.04
+Tokelau,0.04
+Belize,0.03
 Greenland,0.03
 Trinidad and Tobago,0.03
-Marshall Islands,0.02
+Marshall Islands (the),0.02
 Myanmar,0.02
-South Georgia and S Sandwich Islands,0.01
+South Georgia and the South Sandwich Islands,0.01
+Albania,0.0
+American Samoa,0.0
+Andorra,0.0
+Angola,0.0
+Anguilla,0.0
+Antigua and Barbuda,0.0
+Benin,0.0
+Botswana,0.0
+Brunei Darussalam,0.0
+Burkina Faso,0.0
+Burundi,0.0
+Cameroon,0.0
+Central African Republic (the),0.0
+Comoros (the),0.0
+Congo,0.0
+Cook Islands (the),0.0
+Côte d'Ivoire,0.0
+DR Congo,0.0
+Equatorial Guinea,0.0
+Eswatini,0.0
+French Guiana,0.0
+Gabon,0.0
+Guinea,0.0
+Guinea-Bissau,0.0
+Iraq,0.0
+Kiribati,0.0
+Kyrgyzstan,0.0
+Lao PDR,0.0
+Lebanon,0.0
+Lesotho,0.0
+Liberia,0.0
+Libya,0.0
+Malawi,0.0
+Malaysia,0.0
+Mali,0.0
+Mayotte,0.0
+Montserrat,0.0
+Mozambique,0.0
+Nauru,0.0
+Niger (the),0.0
+Nigeria,0.0
+Niue,0.0
+Palau,0.0
+Papua New Guinea,0.0
+Qatar,0.0
+Rwanda,0.0
+Saint Barthélemy,0.0
+Saint Lucia,0.0
+Saint Martin (French Part),0.0
+Saint Pierre and Miquelon,0.0
+Saint Vincent and the Grenadines,0.0
+Sao Tome and Principe,0.0
+Sierra Leone,0.0
+Sint Maarten (Dutch Part),0.0
+Solomon Islands,0.0
+South Sudan,0.0
+State of Palestine,0.0
+Sudan,0.0
+Suriname,0.0
+Tajikistan,0.0
+Timor-Leste,0.0
+Togo,0.0
+Turkmenistan,0.0
+Turks and Caicos Islands,0.0
+Tuvalu,0.0
+Uganda,0.0
+Uzbekistan,0.0
+Yemen,0.0
+Zambia,0.0
+Zimbabwe,0.0
