@@ -23,7 +23,7 @@ shorthand_dict = {
 }
 
 technology_name_mapping = {
-    'Total Renewable': 'Total renewable energy', 'Solar energy': 'Solar', 'Wind energy': 'Wind',
+    'Total Renewable': 'Total renewable', 'Solar energy': 'Solar', 'Wind energy': 'Wind',
     'Hydropower (excl. pumped storage)': 'Renewable hydropower', 'Marine energy': 'Marine', 
     'Bioenergy': 'Bioenergy', 'Geothermal energy': 'Geothermal'
 }
@@ -95,7 +95,7 @@ def generate_files_for_technology(technology, df_regions, regions=None):
     share_regions_df.to_csv(filename_prefix + "_Regions_Share.csv")
 
 # List of technologies to process
-technologies = ['Total renewable energy', 'Solar', 'Wind', 'Renewable hydropower', 'Marine', 'Bioenergy', 'Geothermal']
+technologies = ['Total renewable', 'Solar', 'Wind', 'Renewable hydropower', 'Marine', 'Bioenergy', 'Geothermal']
 
 # Process world data once
 process_world_data(df_regions, technologies)
