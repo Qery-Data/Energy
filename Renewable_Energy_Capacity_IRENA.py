@@ -191,6 +191,13 @@ wind_aggregated = df_countries[df_countries['Technology'].isin(['Onshore wind en
 wind_aggregated['Technology'] = 'Wind'
 bioenergy_aggregated = df_countries[df_countries['Technology'].isin(['Solid biofuels', 'Liquid biofuels', 'Biogas'])].groupby(['Country/area', 'Year']).agg({'value': 'sum'}).reset_index()
 bioenergy_aggregated['Technology'] = 'Bioenergy'
+
+technology_name_mapping = {
+    'Total Renewable': 'Total renewable energy', 'Solar energy': 'Solar', 'Wind energy': 'Wind',
+    'Hydropower (excl. pumped storage)': 'Renewable hydropower', 'Marine energy': 'Marine', 
+    'Bioenergy': 'Bioenergy', 'Geothermal energy': 'Geothermal'
+}
+
 df_countries['Technology'] = df_countries['Technology'].replace(technology_name_mapping)
 df_countries = pd.concat([df_countries, solar_aggregated, wind_aggregated, bioenergy_aggregated], ignore_index=True)
 df_countries.rename(columns={'Country/area': 'Region/country/area'}, inplace=True)
