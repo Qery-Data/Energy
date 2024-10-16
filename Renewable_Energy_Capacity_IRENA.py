@@ -24,7 +24,7 @@ shorthand_dict = {
 }
 
 technology_name_mapping = {
-    'Total Renewable': 'Total renewable energy', 'Solar energy': 'Solar', 'Wind energy': 'Wind',
+    'Total renewable': 'Total renewable energy', 'Solar energy': 'Solar', 'Wind energy': 'Wind',
     'Hydropower (excl. pumped storage)': 'Renewable hydropower', 'Marine energy': 'Marine', 
     'Bioenergy': 'Bioenergy', 'Geothermal energy': 'Geothermal'
 }
