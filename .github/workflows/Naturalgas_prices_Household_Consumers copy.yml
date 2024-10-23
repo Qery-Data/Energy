@@ -1,8 +1,10 @@
 name: Natural Gas Prices Household Consumers Eurostat
 on: 
   workflow_dispatch:
-  schedule:
-    - cron: "5 9 * * *"
+  workflow_run:
+    workflows: ["Electricity Prices Non-Household Consumers Eurostat"]
+    types:
+      - completed
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest

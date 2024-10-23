@@ -1,4 +1,4 @@
-name: Electricity Prices Consumers Eurostat
+name: Electricity Prices Household Consumers Eurostat
 on: 
   workflow_dispatch:
   schedule:
