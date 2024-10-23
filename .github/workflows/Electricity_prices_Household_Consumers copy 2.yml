@@ -1,0 +1,34 @@
+name: Electricity Prices Consumers Eurostat
+on: 
+  workflow_dispatch:
+  schedule:
+    - cron: "5 9 * * *"
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get working copy
+        uses: actions/checkout@main
+        with:
+          fetch-depth: 1
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Requirements
+        run: pip install -r requirements.txt
+      - name: Update
+        if: always()
+        env: 
+          DW_TOKEN: ${{ secrets.DW_TOKEN }}
+        run: python Electricity_prices_Household_Consumers_Eurostat.py
+      - name: Commit and push if it changed
+        run: |
+          git config user.name "${GITHUB_ACTOR}"
+          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          git add -A
+          timestamp=$(date -u +%Y-%m-%d-%H-%M-%S)
+          branch_name="electricity-household-consumers-eurostat-data-update-${timestamp}"
+          git checkout -b "${branch_name}"
+          git commit -m "Latest data: ${timestamp}" || exit 0
+          git push origin "${branch_name}"

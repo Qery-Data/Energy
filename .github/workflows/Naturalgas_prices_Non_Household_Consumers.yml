@@ -1,4 +1,4 @@
-name: Energy Prices EU
+name: Natural Gas Prices Non-Household Consumers Eurostat
 on: 
   workflow_dispatch:
   schedule:
@@ -21,14 +21,14 @@ jobs:
         if: always()
         env: 
           DW_TOKEN: ${{ secrets.DW_TOKEN }}
-        run: python Energy_prices_Consumers_Eurostat.py
+        run: python Naturalgas_prices_Non_Household_Consumers_Eurostat.py
       - name: Commit and push if it changed
         run: |
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
           git add -A
           timestamp=$(date -u +%Y-%m-%d-%H-%M-%S)
-          branch_name="energy-eurostat-data-update-${timestamp}"
+          branch_name="naturalgas-non-household-consumers-eurostat-data-update-${timestamp}"
           git checkout -b "${branch_name}"
           git commit -m "Latest data: ${timestamp}" || exit 0
           git push origin "${branch_name}"
